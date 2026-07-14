@@ -1,5 +1,5 @@
-name: Portfolio and workflow feedback
-description: Share structured feedback on the report, evidence or developer experience.
+name: Framework and case feedback
+description: Share structured feedback on the framework, a case study, its evidence or developer experience.
 title: "[Feedback]: "
 labels: [feedback]
 body:
@@ -10,9 +10,10 @@ body:
       options:
         - Power BI report and UX
         - Data model and DAX
-        - MySQL and refresh performance
+        - Source adapters and refresh performance
         - RLS and security evidence
         - Automation workflow
+        - New case-study proposal
         - Documentation and onboarding
     validations:
       required: true

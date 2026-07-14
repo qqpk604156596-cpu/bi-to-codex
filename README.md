@@ -1,46 +1,65 @@
-# Enterprise Sales Automation
+# BI to Codex
 
-An evidence-backed Power BI Desktop portfolio project built from the public [UCI Online Retail II](https://archive.ics.uci.edu/dataset/502/online%2Bretail%2Bii) dataset.
+An evidence-backed framework for building, validating and evolving Power BI projects with Codex.
 
-The repository demonstrates a governed, template-based workflow for MySQL Import, independent metric reconciliation, a star schema, simulated country RLS, file-based PBIP/PBIR generation, automated quality gates, and human Desktop acceptance.
+The repository separates reusable delivery infrastructure from domain-specific case studies. The current validated case uses public retail sales data; additional data types must bring their own governed contracts, metrics, model and evidence before they can be described as supported.
 
-> This is a public-data practice project, not a paid client engagement. Power BI Service, Fabric, gateway configuration, real-user sharing, and real-client acceptance are not validated.
+> Current scope: the reusable workflow and project scaffold exist, but only the Enterprise Sales case has passed the complete Desktop quality gates. This repository is not an arbitrary-schema, any-industry one-click generator.
 
-![Executive Overview](projects/enterprise-sales-automation/evidence/runs/20260714T064441297Z/saved-desktop-screenshots/Executive%20Overview.png)
+![Enterprise Sales case — Executive Overview](projects/enterprise-sales-automation/evidence/runs/20260714T064441297Z/saved-desktop-screenshots/Executive%20Overview.png)
 
-## What is included
+## Framework and case studies
 
-- Three Power BI pages: Executive Overview, Product & Trend Analysis, and Customer & Country Analysis.
+| Layer | Purpose | Current status |
+| --- | --- | --- |
+| Reusable framework | Workflow orchestration, quality gates, evidence model, standards and project scaffold | Implemented and tested |
+| Enterprise Sales case | MySQL Import, retail metrics, star schema, simulated country RLS and a three-page report | L1 Desktop deliverable |
+| Additional data types | New case-local contracts and adapters for other domains and source shapes | Contributions welcome; not yet validated |
+
+## What the framework provides
+
+- Resumable, stage-based workflow execution with fingerprints, time budgets and heartbeat logs.
+- Machine-readable quality gates for documentation, data contracts, metrics, semantic models, PBIP/PBIR and reports.
+- A reusable `templates/bi-project/` scaffold that keeps state, source logic, tests and evidence together.
+- Explicit separation between reusable core behavior and case-specific schema, measures, visuals and acceptance criteria.
+- Evidence-backed capability claims: untested Service, Fabric, gateway and real-user sharing remain explicitly unvalidated.
+
+## Current validated case
+
+[`projects/enterprise-sales-automation/`](projects/enterprise-sales-automation/README.md) is the first reference implementation, built from the public [UCI Online Retail II](https://archive.ics.uci.edu/dataset/502/online%2Bretail%2Bii) dataset.
+
+It includes:
+
 - 1,067,371 public retail transaction lines loaded through MySQL 8.0 Import.
 - Ten reconciled business measures with DuckDB/MySQL baselines.
-- Star-schema semantic model and simulated country-level RLS.
-- Versioned PBIP/PBIR/TMDL source assets.
-- A local Next.js interaction prototype with Playwright and accessibility coverage.
-- Resumable quality gates with stage fingerprints, time budgets, heartbeat logs, and evidence reuse.
-- Refresh evidence at 68.59 seconds against a 300-second target.
+- A star-schema semantic model and simulated country-level RLS.
+- Versioned PBIP/PBIR/TMDL source assets and a local interaction prototype.
+- A verified 68.59-second Desktop refresh against a 300-second target.
 - Representative Performance Analyzer results up to 455 ms against a 3-second target.
 
-The 30-minute post-mapping automation target was not measured end to end and is not claimed as achieved.
+The 30-minute post-mapping automation target was not measured end to end and is not claimed as achieved. This is a public-data practice case, not a paid client engagement.
 
 ## Repository layout
 
 ```text
-docs/                                  Shared Power BI delivery standards
-projects/enterprise-sales-automation/  PBIP project, SQL, configuration, docs and evidence
-scripts/                               Workflow runner and quality gates
-templates/bi-project/                  Reusable project scaffold
-tests/                                 Workflow and validation tests
+docs/                                  Shared standards and case-study contract
+projects/                              Independently governed BI case studies
+projects/enterprise-sales-automation/  First validated sales case
+scripts/                               Reusable workflow runner and quality gates
+templates/bi-project/                  Scaffold for a new governed case
+tests/                                 Framework and validation tests
 ```
 
 ## Start here
 
-- [Project overview](projects/enterprise-sales-automation/README.md)
+- [Case-study contract](docs/CASE_STUDY_CONTRACT.md)
+- [Enterprise Sales overview](projects/enterprise-sales-automation/README.md)
 - [Portfolio case study](projects/enterprise-sales-automation/docs/portfolio-case-study.md)
 - [L1 Desktop delivery checklist](projects/enterprise-sales-automation/docs/delivery-checklist.md)
 - [Evidence index](projects/enterprise-sales-automation/evidence/README.md)
 - [Automation operations guide](projects/enterprise-sales-automation/docs/agent-runtime-operations.md)
 
-## Local setup
+## Run the current case
 
 Requirements include Windows, Power BI Desktop, MySQL 8.0, MySQL Connector/NET, Python, PowerShell, Node.js and Playwright.
 
@@ -66,26 +85,24 @@ Run the resumable workflow:
 ./scripts/Invoke-BIWorkflow.ps1 -Stage Resume -ProjectPath ./projects/enterprise-sales-automation
 ```
 
-Desktop stages require a local Power BI Desktop installation and the project's documented Desktop Bridge integration.
+Desktop stages require a local Power BI Desktop installation and the case's documented Desktop Bridge integration.
+
+## Add another data type
+
+Start from `templates/bi-project/`, create a new folder under `projects/`, and satisfy the [case-study contract](docs/CASE_STUDY_CONTRACT.md). A new case must define its own data grain, rights and sensitivity, source mapping, metric semantics, model, report contract, tests and evidence.
+
+Common logic should move into the framework only after it is proven across at least two materially different cases. Case-specific assumptions must remain inside their case folder.
 
 ## Data and binary policy
 
-- The source dataset is CC BY 4.0 and must be downloaded from UCI by each user.
-- Raw/intermediate data, local databases, credentials, PBIX binaries, caches and unredacted local logs are intentionally excluded.
-- PBIP/PBIR/TMDL source files and curated, reviewed evidence are versioned.
+- Each case must document its dataset source, license and redistribution boundary.
+- Raw/intermediate data, local databases, credentials, PBIX binaries, caches and unredacted local logs are excluded.
+- PBIP/PBIR/TMDL source files and curated, reviewed evidence may be versioned when authorized.
 
 ## Contributing
 
-Feedback, reproducible bug reports, documentation improvements and focused pull requests are welcome. Good starting areas include:
-
-- testing the workflow on another Windows/Power BI Desktop version;
-- improving MySQL and Power Query refresh diagnostics;
-- strengthening accessible report patterns;
-- adding a separately governed schema adapter without weakening current quality gates;
-- reviewing the evidence model and public portfolio narrative.
-
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+Feedback, reproducible bug reports, new governed cases, documentation improvements and focused pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request, or use GitHub Discussions for a proposed data type or architectural change.
 
 ## License
 
-Code and original project documentation are licensed under the [MIT License](LICENSE). The UCI Online Retail II dataset remains subject to its own CC BY 4.0 license and is not redistributed here.
+Code and original project documentation are licensed under the [MIT License](LICENSE). Case-study datasets remain subject to their own licenses and are not redistributed here.

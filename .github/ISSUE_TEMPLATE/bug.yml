@@ -7,7 +7,7 @@ body:
     id: environment
     attributes:
       label: Environment
-      description: Windows, Power BI Desktop, Python, Node.js and MySQL versions as applicable.
+      description: Windows, Power BI Desktop, Python, Node.js and source-system versions as applicable.
     validations:
       required: true
   - type: textarea
