@@ -1,0 +1,38 @@
+name: Portfolio and workflow feedback
+description: Share structured feedback on the report, evidence or developer experience.
+title: "[Feedback]: "
+labels: [feedback]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Power BI report and UX
+        - Data model and DAX
+        - MySQL and refresh performance
+        - RLS and security evidence
+        - Automation workflow
+        - Documentation and onboarding
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: What did you observe?
+      description: Please separate confirmed facts from suggestions.
+    validations:
+      required: true
+  - type: textarea
+    id: improvement
+    attributes:
+      label: What would you change?
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data safety
+      options:
+        - label: I have not included credentials, PBIX files, private data or unredacted logs.
+          required: true

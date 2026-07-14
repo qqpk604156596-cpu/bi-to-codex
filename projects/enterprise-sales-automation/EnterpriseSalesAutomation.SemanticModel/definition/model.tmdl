@@ -1,0 +1,19 @@
+model Model
+	culture: zh-CN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: zh-CN
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table FactSalesLine
+ref table DimDate
+ref table DimProduct
+ref table DimCustomer
+ref table DimCountry
+ref table SecurityUserCountry
+
+ref role CountryManager
+
+ref cultureInfo zh-CN

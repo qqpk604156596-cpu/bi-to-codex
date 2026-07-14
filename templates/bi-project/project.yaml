@@ -1,0 +1,29 @@
+project:
+  name: "{{PROJECT_NAME}}"
+  status: "discovery"
+  classification: "practice"
+  owner: ""
+  decision_owner: ""
+
+delivery:
+  primary_tool: "Power BI"
+  output_format: "PBIP"
+  due_date: ""
+  revision_rounds: 1
+
+data:
+  contains_client_data: false
+  portfolio_authorized: false
+  grain: ""
+  refresh_mode: "manual"
+
+quality_gates:
+  scope: "pending"
+  data_contract: "pending"
+  data_quality: "pending"
+  metrics: "pending"
+  model_spec: "pending"
+  model: "pending"
+  report: "pending"
+  release: "pending"
+  portfolio: "pending"

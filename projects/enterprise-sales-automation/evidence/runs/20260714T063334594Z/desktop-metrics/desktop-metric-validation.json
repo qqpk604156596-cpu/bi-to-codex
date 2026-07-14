@@ -1,0 +1,78 @@
+﻿{
+    "name":  "Power BI Desktop metric validation",
+    "status":  "passed",
+    "started_at":  "2026-07-14T06:35:07.6295422Z",
+    "completed_at":  "2026-07-14T06:35:08.1488088Z",
+    "workspace_name":  "<redacted-local-workspace>",
+    "catalog":  "95e035f6-ff44-458c-a0dc-17bef82bbde1",
+    "message":  "Desktop DAX metrics match the approved baseline for all, country, and month slices.",
+    "source":  "Desktop local Analysis Services DAX query compared with approved MySQL baseline",
+    "mysql_credentials_written":  false,
+    "result":  {
+                   "baseline":  "duckdb-baseline.json",
+                   "performance_proxy":  "Local Desktop DAX query duration; not Performance Analyzer",
+                   "performance_threshold_ms":  3000,
+                   "slices":  [
+                                  {
+                                      "id":  "all",
+                                      "metrics":  {
+                                                      "gross_sales":  20972594.55,
+                                                      "cancelled_sales":  1527415,
+                                                      "net_sales":  19445926.69,
+                                                      "order_count":  40077,
+                                                      "units_sold":  11420287,
+                                                      "active_customers":  5878,
+                                                      "average_order_value":  523.3075,
+                                                      "cancellation_rate":  0.15463513790724129,
+                                                      "sales_mom_pct":  null,
+                                                      "sales_yoy_pct":  null
+                                                  },
+                                      "mismatch_count":  0,
+                                      "duration_ms":  127.15,
+                                      "performance_proxy_passed":  true
+                                  },
+                                  {
+                                      "id":  "country",
+                                      "metrics":  {
+                                                      "gross_sales":  17870977.76,
+                                                      "cancelled_sales":  1330464.88,
+                                                      "net_sales":  16541260.02,
+                                                      "order_count":  36535,
+                                                      "units_sold":  9383227,
+                                                      "active_customers":  5350,
+                                                      "average_order_value":  489.1468,
+                                                      "cancellation_rate":  0.14897256786754373,
+                                                      "sales_mom_pct":  null,
+                                                      "sales_yoy_pct":  null
+                                                  },
+                                      "mismatch_count":  0,
+                                      "duration_ms":  69.92,
+                                      "performance_proxy_passed":  true
+                                  },
+                                  {
+                                      "id":  "month",
+                                      "metrics":  {
+                                                      "gross_sales":  1470272.48,
+                                                      "cancelled_sales":  47617.84,
+                                                      "net_sales":  1422654.64,
+                                                      "order_count":  2747,
+                                                      "units_sold":  728447,
+                                                      "active_customers":  1607,
+                                                      "average_order_value":  535.2284,
+                                                      "cancellation_rate":  0.15699100572363042,
+                                                      "sales_mom_pct":  0.31229796613065608,
+                                                      "sales_yoy_pct":  null
+                                                  },
+                                      "mismatch_count":  0,
+                                      "duration_ms":  79.56,
+                                      "performance_proxy_passed":  true
+                                  }
+                              ],
+                   "mismatches":  [
+
+                                  ],
+                   "performance_failures":  [
+
+                                            ]
+               }
+}

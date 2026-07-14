@@ -1,0 +1,46 @@
+{
+    "name":  "Power BI Desktop dynamic RLS validation",
+    "status":  "passed",
+    "started_at":  "2026-07-14T06:35:08.2158192Z",
+    "completed_at":  "2026-07-14T06:35:11.0793829Z",
+    "workspace_name":  "<redacted-local-workspace>",
+    "catalog":  "95e035f6-ff44-458c-a0dc-17bef82bbde1",
+    "runtime_identity_sha256":  "e908644f4dc2f62bc6608c5f3ce2a18b9d3d7ba1a26ff75e9f12d7b99bffed56",
+    "original_partition_restored":  "passed",
+    "message":  "UK, France, and unmapped local Desktop RLS scenarios passed against the approved DuckDB country baseline; Service identity is not validated.",
+    "source":  "Desktop local Analysis Services; temporary in-memory security mapping only",
+    "service_identity_validated":  false,
+    "mysql_credentials_written":  false,
+    "scenarios":  [
+                      {
+                          "id":  "uk",
+                          "expected_country":  "United Kingdom",
+                          "visible_country_count":  1,
+                          "visible_countries":  "United Kingdom",
+                          "expected_net_sales":  16541260.02,
+                          "actual_net_sales":  16541260.02,
+                          "comparison":  "approved_duckdb_baseline",
+                          "passed":  true
+                      },
+                      {
+                          "id":  "france",
+                          "expected_country":  "France",
+                          "visible_country_count":  1,
+                          "visible_countries":  "France",
+                          "expected_net_sales":  328191.80,
+                          "actual_net_sales":  328191.8,
+                          "comparison":  "approved_duckdb_baseline",
+                          "passed":  true
+                      },
+                      {
+                          "id":  "unmapped",
+                          "expected_country":  "",
+                          "visible_country_count":  null,
+                          "visible_countries":  null,
+                          "expected_net_sales":  null,
+                          "actual_net_sales":  null,
+                          "comparison":  "deny_by_default",
+                          "passed":  true
+                      }
+                  ]
+}

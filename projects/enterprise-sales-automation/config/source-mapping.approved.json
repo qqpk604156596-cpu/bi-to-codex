@@ -1,0 +1,22 @@
+{
+  "status": "approved",
+  "source_table_env": "MYSQL_SOURCE_TABLE",
+  "source_table": "online_retail_raw",
+  "mapping": {
+    "InvoiceNo": "InvoiceNo",
+    "StockCode": "StockCode",
+    "Description": "DescriptionText",
+    "Quantity": "Quantity",
+    "InvoiceDate": "InvoiceDate",
+    "UnitPrice": "UnitPrice",
+    "CustomerID": "CustomerID",
+    "Country": "Country"
+  },
+  "cancellation_rule": {
+    "type": "invoice_prefix",
+    "prefix": "C"
+  },
+  "approved_by": "Portfolio project owner",
+  "approved_at": "2026-07-12T00:00:00+08:00",
+  "approval_note": "Approved after the live MySQL schema profile confirmed the loaded raw-table fields. This approval covers the local UCI practice dataset only."
+}

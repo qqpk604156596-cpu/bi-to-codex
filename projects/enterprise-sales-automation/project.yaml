@@ -1,0 +1,72 @@
+project:
+  name: "Enterprise Sales Automation MVP"
+  status: "l1-desktop-deliverable"
+  classification: "public-data-practice"
+  owner: "Portfolio project owner"
+  decision_owner: "Portfolio project owner"
+
+delivery:
+  primary_tool: "Power BI Desktop"
+  output_format: "PBIP and manually approved PBIX"
+  due_date: "2026-07-18"
+  revision_rounds: 1
+
+data:
+  source: "UCI Online Retail II"
+  source_url: "https://archive.ics.uci.edu/dataset/502/online%2Bretail%2Bii"
+  license: "CC BY 4.0"
+  contains_client_data: false
+  portfolio_authorized: true
+  grain: "one row per invoice product line"
+  power_bi_source: "MySQL 8.0"
+  validation_engine: "DuckDB"
+  refresh_mode: "Import"
+  reported_source_rows: 1067371
+
+automation:
+  operator: "Portfolio project owner using VS Code and Codex"
+  mapping_approval_required: true
+  target_minutes_after_mapping: 30
+  target_refresh_minutes: 5
+  target_interaction_seconds: 3
+  ui_contract_version: 1
+  prototype_runtime: "Next.js local fixture only"
+  prototype_status: "passed"
+
+quality_gates:
+  scope: "passed"
+  authorization: "passed"
+  data_contract: "passed"
+  data_quality: "passed"
+  metrics: "passed"
+  model_spec: "passed"
+  model: "passed"
+  rls: "passed"
+  powerbi_project: "passed"
+  report: "passed"
+  performance: "passed"
+  delivery: "passed"
+  release: "passed"
+  portfolio: "passed"
+
+external_validation:
+  power_bi_service: "not-validated"
+  fabric: "not-validated"
+  gateway: "not-validated"
+  real_multi_user_sharing: "not-validated"
+  real_client_acceptance: "not-validated"
+
+workflow:
+  schema_version: 2
+  last_run_id: "20260714T104208402Z"
+  last_status: "passed"
+  last_mode: "release"
+  last_successful_stage: "ValidateRelease"
+  last_run_duration_ms: 4969
+  input_fingerprints_json: "{\"documentation\":\"514150c02029f64a94c995aa61f3517042fe458f04ef60cb9910de113e8642ad\",\"data_contract\":\"08e53ad2b39ad59f1deee5d7e6ce881cbba6bbee50144552b9035ef92c19be9c\",\"metrics\":\"b6c9edb733fa93707711b25a9b3bbcfe3a15c2d539d6ec155933bfae96aeceae\",\"model\":\"47136d1b7dfc1120bae7c1071c75dd60fdc0fbf168d5d52b47d5f795aa2ef15d\",\"ui\":\"87d7ffcd40a58bf05ffe43699099a2a9eae920b66297b37d0b4951afb446e20e\",\"report\":\"9652abe9f377e248f2ff4766f6836ecea87aeb9110641bdf24b0f38edd676ec8\"}"
+  stage_cache_json: "{\"ValidateDocumentation\":{\"fingerprint\":\"a0c27c023639a7072d99d3bb5f8e90518ef8c979883f8cc403a9101baf8e589d\",\"run_id\":\"20260714T104208402Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\"},\"ValidateDataContract\":{\"fingerprint\":\"655d78fa55a22995f2629dc0219d21267fe908e8d80153436172e99d2ff77dd2\",\"run_id\":\"20260714T104208402Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\"},\"TestDataQuality\":{\"fingerprint\":\"655d78fa55a22995f2629dc0219d21267fe908e8d80153436172e99d2ff77dd2\",\"run_id\":\"20260714T104208402Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\"},\"ValidateMetrics\":{\"fingerprint\":\"cdc12aa6aa0bf282a6278dfff8435eb8cb9965d926ac8372dde86cb453b31f1a\",\"run_id\":\"20260714T104208402Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\"},\"ValidateModelSpec\":{\"fingerprint\":\"b5cb6dac66517559fe92ee28be64c4f65b59fcbb8f6602bc39d4bbd02945408a\",\"run_id\":\"20260714T104208402Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\"},\"ValidatePowerBIProject\":{\"fingerprint\":\"6245f436d93a7950c59664b5e929d972ffc93edcd5348e0c80f1f9a73a074fc8\",\"run_id\":\"20260714T104208402Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\"},\"ValidateUIContract\":{\"fingerprint\":\"2d89302f5a191626f08e3c9af5a406dbabe821e93cbfd08c143ad937ffdc13d1\",\"run_id\":\"20260714T104208402Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\"},\"GenerateReport\":{\"fingerprint\":\"2d89302f5a191626f08e3c9af5a406dbabe821e93cbfd08c143ad937ffdc13d1\",\"run_id\":\"20260714T104208402Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\"},\"ValidateReportQA\":{\"fingerprint\":\"a5f7ac85a24d466d0adf868ab2d6a386669dbcfe508a6cac5d6538e2e70b49c5\",\"run_id\":\"20260714T104208402Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\"},\"ValidatePrototype\":{\"fingerprint\":\"400c2dfaf628493b7cfc288a7614ef60d6999000eccc229e4597e72fa408c61d\",\"run_id\":\"20260714T104208402Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\"},\"DesktopRefresh\":{\"fingerprint\":\"7caccbbfbf380ac7330ae0147a55c7c9bf49730e17fb58827908ae4418202f79\",\"run_id\":\"20260714T063334594Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\",\"evidence_relative\":\"desktop-model/desktop-model-refresh.json\"},\"DesktopMetrics\":{\"fingerprint\":\"b5cb6dac66517559fe92ee28be64c4f65b59fcbb8f6602bc39d4bbd02945408a\",\"run_id\":\"20260714T063334594Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\",\"evidence_relative\":\"desktop-metrics/desktop-metric-validation.json\"},\"DesktopRls\":{\"fingerprint\":\"7caccbbfbf380ac7330ae0147a55c7c9bf49730e17fb58827908ae4418202f79\",\"run_id\":\"20260714T063334594Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\",\"evidence_relative\":\"desktop-rls/desktop-rls-validation.json\"},\"CaptureDesktopScreenshots\":{\"fingerprint\":\"2d89302f5a191626f08e3c9af5a406dbabe821e93cbfd08c143ad937ffdc13d1\",\"run_id\":\"20260714T064441297Z\",\"completed_at\":\"2026-07-14T10:47:33.482655+00:00\",\"source\":\"bootstrap-existing-evidence\",\"evidence_relative\":\"saved-desktop-screenshots\"}}"
+  pending_stages_json: "[]"
+  blocked_stage: ""
+  blocked_reason: ""
+  blocked_since: ""
+  blocked_retry_count: 0

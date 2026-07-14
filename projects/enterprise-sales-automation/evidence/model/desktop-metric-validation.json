@@ -1,0 +1,67 @@
+﻿{
+    "name":  "Power BI Desktop metric validation",
+    "status":  "passed",
+    "started_at":  "2026-07-13T02:46:19.7077511Z",
+    "completed_at":  "2026-07-13T02:46:20.2595549Z",
+    "workspace_name":  "AnalysisServicesWorkspace_9d0ee12d-fa79-4a40-9655-4cd2811c4f78",
+    "catalog":  "719a6e4c-8470-40ee-97f0-d8fe35fdba60",
+    "message":  "Desktop DAX metrics match the approved baseline for all, country, and month slices.",
+    "source":  "Desktop local Analysis Services DAX query compared with approved MySQL baseline",
+    "mysql_credentials_written":  false,
+    "result":  {
+                   "baseline":  "mysql-baseline.json",
+                   "slices":  [
+                                  {
+                                      "id":  "all",
+                                      "metrics":  {
+                                                      "gross_sales":  20972594.55,
+                                                      "cancelled_sales":  1527415,
+                                                      "net_sales":  19445926.69,
+                                                      "order_count":  40077,
+                                                      "units_sold":  11420287,
+                                                      "active_customers":  5878,
+                                                      "average_order_value":  523.3075,
+                                                      "cancellation_rate":  0.15463513790724129,
+                                                      "sales_mom_pct":  null,
+                                                      "sales_yoy_pct":  null
+                                                  },
+                                      "mismatch_count":  0
+                                  },
+                                  {
+                                      "id":  "country",
+                                      "metrics":  {
+                                                      "gross_sales":  17870977.76,
+                                                      "cancelled_sales":  1330464.88,
+                                                      "net_sales":  16541260.02,
+                                                      "order_count":  36535,
+                                                      "units_sold":  9383227,
+                                                      "active_customers":  5350,
+                                                      "average_order_value":  489.1468,
+                                                      "cancellation_rate":  0.14897256786754373,
+                                                      "sales_mom_pct":  null,
+                                                      "sales_yoy_pct":  null
+                                                  },
+                                      "mismatch_count":  0
+                                  },
+                                  {
+                                      "id":  "month",
+                                      "metrics":  {
+                                                      "gross_sales":  1470272.48,
+                                                      "cancelled_sales":  47617.84,
+                                                      "net_sales":  1422654.64,
+                                                      "order_count":  2747,
+                                                      "units_sold":  728447,
+                                                      "active_customers":  1607,
+                                                      "average_order_value":  535.2284,
+                                                      "cancellation_rate":  0.15699100572363042,
+                                                      "sales_mom_pct":  0.31229796613065608,
+                                                      "sales_yoy_pct":  null
+                                                  },
+                                      "mismatch_count":  0
+                                  }
+                              ],
+                   "mismatches":  [
+
+                                  ]
+               }
+}

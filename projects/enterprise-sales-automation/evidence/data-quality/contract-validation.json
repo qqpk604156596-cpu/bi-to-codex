@@ -1,0 +1,11 @@
+{
+  "name": "BI Data Contract Validation",
+  "status": "passed",
+  "generated_at": "2026-07-14T09:49:17.230432+08:00",
+  "project_path": ".",
+  "summary": {
+    "contract_path": "config/data-contract.json",
+    "issue_count": 0
+  },
+  "issues": []
+}

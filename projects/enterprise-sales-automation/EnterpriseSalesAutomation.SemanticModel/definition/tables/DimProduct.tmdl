@@ -1,0 +1,21 @@
+table DimProduct
+	lineageTag: 2053ca6e-44fd-4520-914d-8aea4b363e48
+
+	column StockCode
+		dataType: string
+		lineageTag: 39116c7a-feb1-45b8-ae71-f4afbf52c51c
+		sourceColumn: StockCode
+
+	column Description
+		dataType: string
+		lineageTag: babf6906-8ee6-4145-9643-d9c61fd260fc
+		sourceColumn: Description
+
+	partition DimProduct = m
+		mode: import
+		source =
+				let
+					Source = MySQL.Database(MySqlServer, MySqlDatabase, [ReturnSingleDatabase = true]),
+					Navigation = Source{[Schema=MySqlDatabase, Item="vw_dim_product"]}[Data]
+				in
+					Navigation

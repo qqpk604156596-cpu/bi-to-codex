@@ -1,0 +1,7 @@
+/// Local MySQL host. Configure credentials only through Power BI Desktop; no credentials are stored in this project.
+expression MySqlServer = "127.0.0.1" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 9da1ecea-f58d-48d3-a1d7-82bf82ae45a1
+
+/// Local MySQL database containing vw_fact_sales_line.
+expression MySqlDatabase = "enterprise_sales" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 3e6ac185-282c-47db-be37-1e284c54463a

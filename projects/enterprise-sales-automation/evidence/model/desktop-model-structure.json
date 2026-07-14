@@ -1,0 +1,15 @@
+{
+  "name": "Power BI Desktop relationship validation",
+  "status": "passed",
+  "observed_at": "2026-07-12T13:03:50.8894846Z",
+  "source": "Desktop local Analysis Services TMSCHEMA_RELATIONSHIPS",
+  "relationship_count": 5,
+  "relationships": [
+    {"name": "FactSalesLine_InvoiceDateDate_DimDate", "is_active": true, "from_cardinality": "many", "to_cardinality": "one", "cross_filter": "single", "security_filter": "single"},
+    {"name": "FactSalesLine_StockCode_DimProduct", "is_active": true, "from_cardinality": "many", "to_cardinality": "one", "cross_filter": "single", "security_filter": "single"},
+    {"name": "FactSalesLine_CustomerKey_DimCustomer", "is_active": true, "from_cardinality": "many", "to_cardinality": "one", "cross_filter": "single", "security_filter": "single"},
+    {"name": "FactSalesLine_Country_DimCountry", "is_active": true, "from_cardinality": "many", "to_cardinality": "one", "cross_filter": "single", "security_filter": "single"},
+    {"name": "SecurityUserCountry_Country_DimCountry", "is_active": true, "from_cardinality": "many", "to_cardinality": "one", "cross_filter": "both", "security_filter": "both"}
+  ],
+  "rls_gate_status": "pending-positive-user-identity-tests"
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "dataset": "{{PROJECT_NAME}} dataset",
+  "metrics": [
+    {
+      "id": "record_count",
+      "name": "Record Count",
+      "aggregation": "distinct_count",
+      "column": "record_id",
+      "expected": 0,
+      "tolerance": 0,
+      "format_string": "0"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+﻿{
+    "name":  "BI Workflow Preflight",
+    "status":  "passed",
+    "generated_at":  "2026-07-14T18:42:10.7601536+08:00",
+    "project_path":  ".",
+    "summary":  {
+                    "passed":  4,
+                    "failed":  0
+                },
+    "checks":  [
+                   {
+                       "name":  "PowerShell version",
+                       "passed":  true,
+                       "details":  "5.1.19041.7417"
+                   },
+                   {
+                       "name":  "Git command",
+                       "passed":  true,
+                       "details":  "C:\\Program Files\\Git\\cmd\\git.exe"
+                   },
+                   {
+                       "name":  "Project directory",
+                       "passed":  true,
+                       "details":  "."
+                   },
+                   {
+                       "name":  "Project config",
+                       "passed":  true,
+                       "details":  "project.yaml"
+                   }
+               ]
+}

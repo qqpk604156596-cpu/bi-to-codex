@@ -1,0 +1,37 @@
+name: Reproducible bug
+description: Report a workflow, validation or PBIP/PBIR defect.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Windows, Power BI Desktop, Python, Node.js and MySQL versions as applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and sanitized evidence
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data safety
+      options:
+        - label: I have removed credentials, private data, PBIX files and sensitive local details.
+          required: true

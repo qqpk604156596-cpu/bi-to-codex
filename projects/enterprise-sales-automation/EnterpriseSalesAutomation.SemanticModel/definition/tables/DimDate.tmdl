@@ -1,0 +1,42 @@
+table DimDate
+	lineageTag: 6ae6db6a-09ed-4187-b723-593f2b0e62d9
+
+	column Date
+		dataType: dateTime
+		lineageTag: 978e7daa-44b7-4aa3-988a-fb968e20b776
+		sourceColumn: Date
+
+	column Year
+		dataType: int64
+		lineageTag: e6ad1f4d-edf8-44a6-97b1-1c86daaff195
+		sourceColumn: Year
+
+	column MonthNumber
+		dataType: int64
+		lineageTag: a54929ba-2ea4-4301-804a-a518891898e2
+		sourceColumn: MonthNumber
+
+	column MonthName
+		dataType: string
+		lineageTag: e4eda668-3b94-4dbd-b93e-b0815bb6ad05
+		sourceColumn: MonthName
+		sortByColumn: MonthNumber
+
+	column YearMonth
+		dataType: string
+		lineageTag: fa77b861-250d-4549-bfd4-75074fd06de5
+		sourceColumn: YearMonth
+
+	partition DimDate = m
+		mode: import
+		source =
+				let
+					Source = MySQL.Database(MySqlServer, MySqlDatabase, [ReturnSingleDatabase = true]),
+					Navigation = Source{[Schema=MySqlDatabase, Item="vw_dim_date"]}[Data],
+					Typed = Table.TransformColumnTypes(Navigation, {{"Date", type date}}),
+					WithYear = Table.AddColumn(Typed, "Year", each Date.Year([Date]), Int64.Type),
+					WithMonthNumber = Table.AddColumn(WithYear, "MonthNumber", each Date.Month([Date]), Int64.Type),
+					WithMonthName = Table.AddColumn(WithMonthNumber, "MonthName", each Date.MonthName([Date]), type text),
+					WithYearMonth = Table.AddColumn(WithMonthName, "YearMonth", each Date.ToText([Date], "yyyy-MM"), type text)
+				in
+					WithYearMonth

@@ -1,0 +1,34 @@
+{
+  "theme": {
+    "name": "Light Executive",
+    "version": 1
+  },
+  "colors": {
+    "canvas": "#F7F9FC",
+    "surface": "#FFFFFF",
+    "primary": "#164E8C",
+    "accent": "#009E8A",
+    "warning": "#C2410C",
+    "text_primary": "#1F2937",
+    "text_secondary": "#667085",
+    "border": "#D0D5DD"
+  },
+  "typography": {
+    "font_family": "Segoe UI",
+    "page_title_size": 28,
+    "section_title_size": 15,
+    "kpi_label_size": 12
+  },
+  "layout": {
+    "canvas_width": 1280,
+    "canvas_height": 720,
+    "page_margin": 32,
+    "component_gap": 16,
+    "corner_radius": 8
+  },
+  "components": {
+    "slicer_min_height": 76,
+    "card_border_visible": false,
+    "chart_gridline_visible": true
+  }
+}

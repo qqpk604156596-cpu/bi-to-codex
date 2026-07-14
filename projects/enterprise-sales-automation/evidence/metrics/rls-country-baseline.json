@@ -1,0 +1,35 @@
+{
+  "name": "DuckDB RLS country metric baseline",
+  "status": "passed",
+  "generated_at": "2026-07-13T02:34:00Z",
+  "source": "data/interim/fact_sales_line.csv",
+  "engine": "DuckDB",
+  "countries": [
+    {
+      "country": "United Kingdom",
+      "metrics": {
+        "gross_sales": "17870977.76",
+        "cancelled_sales": "1330464.88",
+        "net_sales": "16541260.02",
+        "order_count": 36535,
+        "units_sold": 9383227,
+        "active_customers": 5350,
+        "average_order_value": "489.1467841795538524702340222",
+        "cancellation_rate": "0.1489725678675437345987006904"
+      }
+    },
+    {
+      "country": "France",
+      "metrics": {
+        "gross_sales": "356944.60",
+        "cancelled_sales": "28752.80",
+        "net_sales": "328191.80",
+        "order_count": 622,
+        "units_sold": 275287,
+        "active_customers": 95,
+        "average_order_value": "573.8659163987138263665594855",
+        "cancellation_rate": "0.1662198391420911528150134048"
+      }
+    }
+  ]
+}

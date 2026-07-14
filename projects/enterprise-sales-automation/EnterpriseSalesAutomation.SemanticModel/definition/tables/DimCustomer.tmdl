@@ -1,0 +1,28 @@
+table DimCustomer
+	lineageTag: c8bb6b07-2b0b-4b86-afd5-57fdd671469c
+
+	column CustomerKey
+		dataType: string
+		lineageTag: df5666cc-606c-47bb-80da-013e90d3b0c2
+		sourceColumn: CustomerKey
+
+	column CustomerID
+		dataType: string
+		isHidden
+		lineageTag: 662b1313-67f7-4454-bd65-83a1a9d6b71d
+		sourceColumn: CustomerID
+
+	column IsUnknownCustomer
+		dataType: boolean
+		lineageTag: 68e5cd87-432f-49ee-99a0-78bf28ecb8ff
+		sourceColumn: IsUnknownCustomer
+
+	partition DimCustomer = m
+		mode: import
+		source =
+				let
+					Source = MySQL.Database(MySqlServer, MySqlDatabase, [ReturnSingleDatabase = true]),
+					Navigation = Source{[Schema=MySqlDatabase, Item="vw_dim_customer"]}[Data],
+					Typed = Table.TransformColumnTypes(Navigation, {{"CustomerKey", type text}, {"CustomerID", type text}, {"IsUnknownCustomer", type logical}})
+				in
+					Typed

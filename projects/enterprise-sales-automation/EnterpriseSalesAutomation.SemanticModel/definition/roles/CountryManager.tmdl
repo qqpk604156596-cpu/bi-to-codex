@@ -1,0 +1,7 @@
+/// Simulated RLS only. It does not represent a real customer identity or authorization system.
+role CountryManager
+	modelPermission: read
+
+	tablePermission SecurityUserCountry = [IsActive] = TRUE() && [UserPrincipalName] = USERPRINCIPALNAME()
+
+	annotation PBI_Id = a02316c89ea3427da7a96bea1d53eedf

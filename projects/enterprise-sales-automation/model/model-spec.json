@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "design-validated-not-built",
+  "model": {
+    "name": "Enterprise Sales Automation Model",
+    "storage_mode": "Import",
+    "fact_table": "FactSalesLine",
+    "date_table": "DimDate"
+  },
+  "tables": [
+    {
+      "name": "FactSalesLine",
+      "kind": "fact",
+      "grain": "One invoice product line per source row",
+      "source": "MySQL Import: vw_fact_sales_line",
+      "columns": ["SourceRowId", "InvoiceNo", "StockCode", "Description", "Quantity", "InvoiceDate", "InvoiceDateDate", "UnitPrice", "CustomerID", "CustomerKey", "Country", "IsCancellation", "UnknownCustomer", "ZeroPrice", "LineAmount"]
+    },
+    { "name": "DimDate", "kind": "date", "primary_key": "Date", "columns": ["Date", "Year", "MonthNumber", "MonthName", "YearMonth"] },
+    { "name": "DimProduct", "kind": "dimension", "primary_key": "StockCode", "columns": ["StockCode", "Description"] },
+    { "name": "DimCustomer", "kind": "dimension", "primary_key": "CustomerKey", "columns": ["CustomerKey", "CustomerID", "IsUnknownCustomer"] },
+    { "name": "DimCountry", "kind": "dimension", "primary_key": "Country", "columns": ["Country"] },
+    { "name": "SecurityUserCountry", "kind": "security-bridge", "grain": "One active simulated user-country authorization pair", "columns": ["UserPrincipalName", "Country", "IsActive"] }
+  ],
+  "relationships": [
+    { "from_table": "FactSalesLine", "from_column": "InvoiceDateDate", "to_table": "DimDate", "to_column": "Date", "cardinality": "many-to-one", "active": true, "filter_direction": "dimension-to-fact" },
+    { "from_table": "FactSalesLine", "from_column": "StockCode", "to_table": "DimProduct", "to_column": "StockCode", "cardinality": "many-to-one", "active": true, "filter_direction": "dimension-to-fact" },
+    { "from_table": "FactSalesLine", "from_column": "CustomerKey", "to_table": "DimCustomer", "to_column": "CustomerKey", "cardinality": "many-to-one", "active": true, "filter_direction": "dimension-to-fact" },
+    { "from_table": "FactSalesLine", "from_column": "Country", "to_table": "DimCountry", "to_column": "Country", "cardinality": "many-to-one", "active": true, "filter_direction": "dimension-to-fact" },
+    { "from_table": "SecurityUserCountry", "from_column": "Country", "to_table": "DimCountry", "to_column": "Country", "cardinality": "many-to-one", "active": true, "filter_direction": "both-for-security-propagation", "apply_security_filter_in_both_directions": true }
+  ],
+  "measures": [
+    { "name": "Gross Sales", "metric_id": "gross_sales", "table": "FactSalesLine", "expression": "Completed positive Quantity × UnitPrice", "format_string": "£#,0.00" },
+    { "name": "Cancelled Sales", "metric_id": "cancelled_sales", "table": "FactSalesLine", "expression": "Absolute LineAmount for cancellation rows", "format_string": "£#,0.00" },
+    { "name": "Net Sales", "metric_id": "net_sales", "table": "FactSalesLine", "expression": "SUM(LineAmount)", "format_string": "£#,0.00" },
+    { "name": "Order Count", "metric_id": "order_count", "table": "FactSalesLine", "expression": "Distinct completed InvoiceNo", "format_string": "0" },
+    { "name": "Units Sold", "metric_id": "units_sold", "table": "FactSalesLine", "expression": "Completed positive Quantity", "format_string": "0" },
+    { "name": "Active Customers", "metric_id": "active_customers", "table": "FactSalesLine", "expression": "Distinct completed nonblank CustomerID", "format_string": "0" },
+    { "name": "Average Order Value", "metric_id": "average_order_value", "table": "FactSalesLine", "expression": "Gross Sales divided by Order Count", "format_string": "£#,0.00" },
+    { "name": "Cancellation Rate", "metric_id": "cancellation_rate", "table": "FactSalesLine", "expression": "Cancelled Invoice Count divided by All Invoice Count", "format_string": "0.00%" },
+    { "name": "Sales MoM %", "metric_id": "sales_mom_pct", "table": "FactSalesLine", "expression": "Net Sales change from previous month with blank zero denominator", "format_string": "0.00%" },
+    { "name": "Sales YoY %", "metric_id": "sales_yoy_pct", "table": "FactSalesLine", "expression": "Net Sales change from prior-year period with blank zero denominator", "format_string": "0.00%" }
+  ],
+  "security": {
+    "mode": "dynamic-rls",
+    "status": "design-only-with-simulated-users",
+    "role": "CountryManager",
+    "bridge_table": "SecurityUserCountry",
+    "user_column": "UserPrincipalName",
+    "active_column": "IsActive",
+    "row_filter": "[IsActive] = TRUE() && [UserPrincipalName] = USERPRINCIPALNAME()",
+    "actual_desktop_tested": false
+  }
+}

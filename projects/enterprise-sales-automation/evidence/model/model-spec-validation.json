@@ -1,0 +1,16 @@
+{
+  "name": "BI Semantic Model Specification Validation",
+  "status": "passed",
+  "scope": "design_specification_only",
+  "actual_power_bi_model_validated": false,
+  "generated_at": "2026-07-14T10:18:32.118819+08:00",
+  "project_path": ".",
+  "summary": {
+    "table_count": 6,
+    "relationship_count": 5,
+    "measure_count": 10,
+    "metric_count": 10,
+    "issue_count": 0
+  },
+  "issues": []
+}

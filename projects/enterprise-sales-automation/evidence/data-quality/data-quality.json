@@ -1,0 +1,13 @@
+{
+  "name": "BI Data Quality",
+  "status": "passed",
+  "generated_at": "2026-07-14T09:52:01.743939+08:00",
+  "project_path": ".",
+  "summary": {
+    "data_path": "data/interim/fact_sales_line.csv",
+    "row_count": 1067366,
+    "column_count": 13,
+    "issue_count": 0
+  },
+  "issues": []
+}

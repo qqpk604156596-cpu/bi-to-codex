@@ -1,0 +1,16 @@
+table DimCountry
+	lineageTag: 82b32695-aa64-4901-96bd-435b088437bc
+
+	column Country
+		dataType: string
+		lineageTag: 7e9560d0-3b2d-44e9-8f97-8abcede827aa
+		sourceColumn: Country
+
+	partition DimCountry = m
+		mode: import
+		source =
+				let
+					Source = MySQL.Database(MySqlServer, MySqlDatabase, [ReturnSingleDatabase = true]),
+					Navigation = Source{[Schema=MySqlDatabase, Item="vw_dim_country"]}[Data]
+				in
+					Navigation

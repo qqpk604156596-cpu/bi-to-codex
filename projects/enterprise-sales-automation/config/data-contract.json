@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "approved-mapping-awaiting-quality-evidence",
+  "dataset": {
+    "name": "UCI Online Retail II",
+    "grain": "One invoice product line per source row",
+    "source": {
+      "type": "csv",
+      "path": "data/interim/fact_sales_line.csv",
+      "encoding": "utf-8-sig",
+      "delimiter": ","
+    },
+    "operational_source": {
+      "type": "mysql",
+      "database_env": "MYSQL_DATABASE",
+      "table": "vw_fact_sales_line",
+      "storage_mode": "Import",
+      "credentials": "local-only"
+    },
+    "expected_source_rows": 1067371,
+    "business_key": [
+      "InvoiceNo",
+      "StockCode",
+      "InvoiceDate",
+      "SourceRowId"
+    ],
+    "primary_key": [
+      "SourceRowId"
+    ]
+  },
+  "expectations": {
+    "min_rows": 1067366,
+    "max_rows": 1067366,
+    "block_on_missing_required_columns": true,
+    "block_on_duplicate_source_row_id": true
+  },
+  "columns": [
+    { "name": "SourceRowId", "type": "string", "required": true, "nullable": false, "unique": true },
+    { "name": "InvoiceNo", "type": "string", "required": true, "nullable": false },
+    { "name": "StockCode", "type": "string", "required": true, "nullable": false },
+    { "name": "Description", "type": "string", "required": false, "nullable": true },
+    { "name": "Quantity", "type": "integer", "required": true, "nullable": false },
+    { "name": "InvoiceDate", "type": "datetime", "format": "%Y-%m-%dT%H:%M:%S", "required": true, "nullable": false },
+    { "name": "UnitPrice", "type": "number", "required": true, "nullable": false, "min": 0 },
+    { "name": "CustomerID", "type": "string", "required": false, "nullable": true },
+    { "name": "Country", "type": "string", "required": true, "nullable": false },
+    { "name": "IsCancellation", "type": "boolean", "required": true, "nullable": false },
+    { "name": "UnknownCustomer", "type": "boolean", "required": true, "nullable": false },
+    { "name": "ZeroPrice", "type": "boolean", "required": true, "nullable": false },
+    { "name": "LineAmount", "type": "number", "required": true, "nullable": false }
+  ],
+  "row_rules": [
+    {
+      "name": "line_amount_reconciliation",
+      "type": "formula",
+      "target": "LineAmount",
+      "expression": "Quantity * UnitPrice",
+      "tolerance": 0.0001
+    }
+  ]
+}

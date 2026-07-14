@@ -1,0 +1,17 @@
+{
+  "name": "UCI Online Retail II MySQL raw load",
+  "status": "passed",
+  "started_at": "2026-07-11T15:43:59.067760+00:00",
+  "completed_at": "2026-07-11T15:51:32.327899+00:00",
+  "database": "enterprise_sales",
+  "table": "online_retail_raw",
+  "workbook_filename": "online_retail_II.xlsx",
+  "workbook_bytes": 45622278,
+  "workbook_sha256": "BCBE73B35F5B7BABF197FB0CB983A11F5D9FF929078D4AA53D171B1F2DF2E980",
+  "source_rows_observed": 1067371,
+  "rows_loaded": 1067366,
+  "rows_rejected": 5,
+  "rejection_summary": {
+    "unit_price_negative": 5
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "status": "observed",
+  "generated_at": "2026-07-14T02:25:41.907717+00:00",
+  "schema": "enterprise_sales",
+  "table": "online_retail_raw",
+  "sample_row_count": 100,
+  "columns": [
+    {
+      "name": "SourceRowId",
+      "type": "bigint",
+      "nullable": "NO"
+    },
+    {
+      "name": "SourceSheet",
+      "type": "varchar(64)",
+      "nullable": "NO"
+    },
+    {
+      "name": "InvoiceNo",
+      "type": "varchar(32)",
+      "nullable": "NO"
+    },
+    {
+      "name": "StockCode",
+      "type": "varchar(64)",
+      "nullable": "NO"
+    },
+    {
+      "name": "DescriptionText",
+      "type": "varchar(512)",
+      "nullable": "YES"
+    },
+    {
+      "name": "Quantity",
+      "type": "int",
+      "nullable": "NO"
+    },
+    {
+      "name": "InvoiceDate",
+      "type": "datetime",
+      "nullable": "NO"
+    },
+    {
+      "name": "UnitPrice",
+      "type": "decimal(18,4)",
+      "nullable": "NO"
+    },
+    {
+      "name": "CustomerID",
+      "type": "varchar(64)",
+      "nullable": "YES"
+    },
+    {
+      "name": "Country",
+      "type": "varchar(128)",
+      "nullable": "NO"
+    },
+    {
+      "name": "IsCancellation",
+      "type": "tinyint(1)",
+      "nullable": "NO"
+    },
+    {
+      "name": "UnknownCustomer",
+      "type": "tinyint(1)",
+      "nullable": "NO"
+    },
+    {
+      "name": "ZeroPrice",
+      "type": "tinyint(1)",
+      "nullable": "NO"
+    }
+  ]
+}

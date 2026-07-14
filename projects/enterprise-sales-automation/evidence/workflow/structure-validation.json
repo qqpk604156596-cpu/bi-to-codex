@@ -1,0 +1,157 @@
+﻿{
+    "name":  "BI Project Structure Validation",
+    "status":  "passed",
+    "generated_at":  "2026-07-14T18:42:12.2361512+08:00",
+    "project_path":  ".",
+    "summary":  {
+                    "passed":  29,
+                    "failed":  0
+                },
+    "checks":  [
+                   {
+                       "name":  "project.yaml",
+                       "passed":  true,
+                       "details":  "project.yaml"
+                   },
+                   {
+                       "name":  "AGENTS.md",
+                       "passed":  true,
+                       "details":  "AGENTS.md"
+                   },
+                   {
+                       "name":  "README.md",
+                       "passed":  true,
+                       "details":  "README.md"
+                   },
+                   {
+                       "name":  ".gitignore",
+                       "passed":  true,
+                       "details":  ".gitignore"
+                   },
+                   {
+                       "name":  "config\\data-contract.json",
+                       "passed":  true,
+                       "details":  "config\\data-contract.json"
+                   },
+                   {
+                       "name":  "config\\metrics.json",
+                       "passed":  true,
+                       "details":  "config\\metrics.json"
+                   },
+                   {
+                       "name":  "docs\\scope.md",
+                       "passed":  true,
+                       "details":  "docs\\scope.md"
+                   },
+                   {
+                       "name":  "docs\\acceptance-criteria.md",
+                       "passed":  true,
+                       "details":  "docs\\acceptance-criteria.md"
+                   },
+                   {
+                       "name":  "docs\\data-contract.md",
+                       "passed":  true,
+                       "details":  "docs\\data-contract.md"
+                   },
+                   {
+                       "name":  "docs\\metric-dictionary.md",
+                       "passed":  true,
+                       "details":  "docs\\metric-dictionary.md"
+                   },
+                   {
+                       "name":  "docs\\dashboard-blueprint.md",
+                       "passed":  true,
+                       "details":  "docs\\dashboard-blueprint.md"
+                   },
+                   {
+                       "name":  "docs\\risk-register.md",
+                       "passed":  true,
+                       "details":  "docs\\risk-register.md"
+                   },
+                   {
+                       "name":  "docs\\qa-report.md",
+                       "passed":  true,
+                       "details":  "docs\\qa-report.md"
+                   },
+                   {
+                       "name":  "docs\\delivery-notes.md",
+                       "passed":  true,
+                       "details":  "docs\\delivery-notes.md"
+                   },
+                   {
+                       "name":  "docs\\portfolio-case-study.md",
+                       "passed":  true,
+                       "details":  "docs\\portfolio-case-study.md"
+                   },
+                   {
+                       "name":  "data\\raw\\.gitkeep",
+                       "passed":  true,
+                       "details":  "data\\raw\\.gitkeep"
+                   },
+                   {
+                       "name":  "data\\interim\\.gitkeep",
+                       "passed":  true,
+                       "details":  "data\\interim\\.gitkeep"
+                   },
+                   {
+                       "name":  "data\\sample\\.gitkeep",
+                       "passed":  true,
+                       "details":  "data\\sample\\.gitkeep"
+                   },
+                   {
+                       "name":  "src\\extract\\.gitkeep",
+                       "passed":  true,
+                       "details":  "src\\extract\\.gitkeep"
+                   },
+                   {
+                       "name":  "src\\transform\\.gitkeep",
+                       "passed":  true,
+                       "details":  "src\\transform\\.gitkeep"
+                   },
+                   {
+                       "name":  "src\\sql\\.gitkeep",
+                       "passed":  true,
+                       "details":  "src\\sql\\.gitkeep"
+                   },
+                   {
+                       "name":  "src\\powerquery\\.gitkeep",
+                       "passed":  true,
+                       "details":  "src\\powerquery\\.gitkeep"
+                   },
+                   {
+                       "name":  "src\\dax\\.gitkeep",
+                       "passed":  true,
+                       "details":  "src\\dax\\.gitkeep"
+                   },
+                   {
+                       "name":  "model\\.gitkeep",
+                       "passed":  true,
+                       "details":  "model\\.gitkeep"
+                   },
+                   {
+                       "name":  "model\\model-spec.json",
+                       "passed":  true,
+                       "details":  "model\\model-spec.json"
+                   },
+                   {
+                       "name":  "report\\.gitkeep",
+                       "passed":  true,
+                       "details":  "report\\.gitkeep"
+                   },
+                   {
+                       "name":  "themes\\theme.json",
+                       "passed":  true,
+                       "details":  "themes\\theme.json"
+                   },
+                   {
+                       "name":  "tests\\.gitkeep",
+                       "passed":  true,
+                       "details":  "tests\\.gitkeep"
+                   },
+                   {
+                       "name":  "evidence\\.gitkeep",
+                       "passed":  true,
+                       "details":  "evidence\\.gitkeep"
+                   }
+               ]
+}

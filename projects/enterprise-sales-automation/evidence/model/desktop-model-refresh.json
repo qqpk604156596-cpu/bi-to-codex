@@ -1,0 +1,11 @@
+﻿{
+    "name":  "Power BI Desktop local model refresh",
+    "status":  "passed",
+    "started_at":  "2026-07-13T02:15:54.3692305Z",
+    "completed_at":  "2026-07-13T02:19:37.3216900Z",
+    "workspace_name":  "AnalysisServicesWorkspace_9d0ee12d-fa79-4a40-9655-4cd2811c4f78",
+    "catalog":  "719a6e4c-8470-40ee-97f0-d8fe35fdba60",
+    "message":  "Desktop local model refresh completed.",
+    "source":  "Desktop local Analysis Services via TMSL refresh",
+    "mysql_credentials_written":  false
+}

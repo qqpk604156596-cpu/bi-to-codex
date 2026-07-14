@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "approved-baseline-verified",
+  "dataset": "UCI Online Retail II",
+  "currency": "GBP",
+  "validation_mode": "external-reconciliation",
+  "baseline_evidence": "evidence/metrics/reconciliation.json",
+  "approved_by": "Portfolio project owner",
+  "approved_at": "2026-07-12T00:00:00+08:00",
+  "validation_slices": [
+    { "id": "all", "description": "全部已通过质量门的标准化明细；时间变化指标为 null" },
+    { "id": "country", "country": "United Kingdom" },
+    { "id": "month", "month": "2010-11", "description": "完整自然月；MoM 与前月比较，YoY 无可比期间时为 null" }
+  ],
+  "metrics": [
+    { "id": "gross_sales", "name": "Gross Sales", "aggregation": "formula", "expression": "completed positive Quantity * UnitPrice", "format_string": "£#,0.00", "tolerance": 0.01 },
+    { "id": "cancelled_sales", "name": "Cancelled Sales", "aggregation": "formula", "expression": "absolute cancellation Quantity * UnitPrice", "format_string": "£#,0.00", "tolerance": 0.01 },
+    { "id": "net_sales", "name": "Net Sales", "aggregation": "sum", "column": "LineAmount", "format_string": "£#,0.00", "tolerance": 0.01 },
+    { "id": "order_count", "name": "Order Count", "aggregation": "distinct_count", "column": "InvoiceNo", "filter": "completed transactions", "format_string": "0", "tolerance": 0.01 },
+    { "id": "units_sold", "name": "Units Sold", "aggregation": "sum", "column": "Quantity", "filter": "completed transactions", "format_string": "0", "tolerance": 0.01 },
+    { "id": "active_customers", "name": "Active Customers", "aggregation": "distinct_count", "column": "CustomerID", "filter": "completed transactions and nonblank CustomerID", "format_string": "0", "tolerance": 0.01 },
+    { "id": "average_order_value", "name": "Average Order Value", "aggregation": "formula", "expression": "completed Gross Sales / Order Count", "format_string": "£#,0.00", "tolerance": 0.01 },
+    { "id": "cancellation_rate", "name": "Cancellation Rate", "aggregation": "formula", "expression": "Cancelled Invoice Count / All Invoice Count", "format_string": "0.00%", "tolerance": 0.0001 },
+    { "id": "sales_mom_pct", "name": "Sales MoM %", "aggregation": "formula", "expression": "Net Sales change from previous month when a complete calendar month is selected", "format_string": "0.00%", "tolerance": 0.0001 },
+    { "id": "sales_yoy_pct", "name": "Sales YoY %", "aggregation": "formula", "expression": "Net Sales change from prior-year period when a comparable period exists", "format_string": "0.00%", "tolerance": 0.0001 }
+  ],
+  "excluded_metrics": [
+    "Profit",
+    "Gross Margin",
+    "Gross Margin %"
+  ]
+}

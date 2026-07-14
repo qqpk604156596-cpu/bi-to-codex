@@ -1,0 +1,21 @@
+relationship FactSalesLine_InvoiceDateDate_DimDate
+	fromColumn: FactSalesLine.InvoiceDateDate
+	toColumn: DimDate.Date
+
+relationship FactSalesLine_StockCode_DimProduct
+	fromColumn: FactSalesLine.StockCode
+	toColumn: DimProduct.StockCode
+
+relationship FactSalesLine_CustomerKey_DimCustomer
+	fromColumn: FactSalesLine.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+
+relationship FactSalesLine_Country_DimCountry
+	fromColumn: FactSalesLine.Country
+	toColumn: DimCountry.Country
+
+relationship SecurityUserCountry_Country_DimCountry
+	crossFilteringBehavior: bothDirections
+	securityFilteringBehavior: bothDirections
+	fromColumn: SecurityUserCountry.Country
+	toColumn: DimCountry.Country

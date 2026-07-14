@@ -1,0 +1,59 @@
+Gross Sales =
+CALCULATE (
+    SUM ( FactSalesLine[LineAmount] ),
+    FactSalesLine[IsCancellation] = FALSE (),
+    FactSalesLine[Quantity] > 0,
+    FactSalesLine[UnitPrice] > 0
+)
+
+Cancelled Sales =
+CALCULATE (
+    SUMX ( FactSalesLine, ABS ( FactSalesLine[LineAmount] ) ),
+    FactSalesLine[IsCancellation] = TRUE ()
+)
+
+Net Sales = SUM ( FactSalesLine[LineAmount] )
+
+Order Count =
+CALCULATE (
+    DISTINCTCOUNT ( FactSalesLine[InvoiceNo] ),
+    FactSalesLine[IsCancellation] = FALSE (),
+    FactSalesLine[Quantity] > 0,
+    FactSalesLine[UnitPrice] > 0
+)
+
+Units Sold =
+CALCULATE (
+    SUM ( FactSalesLine[Quantity] ),
+    FactSalesLine[IsCancellation] = FALSE (),
+    FactSalesLine[Quantity] > 0,
+    FactSalesLine[UnitPrice] > 0
+)
+
+Active Customers =
+CALCULATE (
+    DISTINCTCOUNT ( FactSalesLine[CustomerID] ),
+    FactSalesLine[IsCancellation] = FALSE (),
+    FactSalesLine[Quantity] > 0,
+    FactSalesLine[UnitPrice] > 0,
+    NOT ISBLANK ( FactSalesLine[CustomerID] )
+)
+
+Average Order Value = DIVIDE ( [Gross Sales], [Order Count] )
+
+Cancelled Invoice Count =
+CALCULATE ( DISTINCTCOUNT ( FactSalesLine[InvoiceNo] ), FactSalesLine[IsCancellation] = TRUE () )
+
+All Invoice Count = DISTINCTCOUNT ( FactSalesLine[InvoiceNo] )
+
+Cancellation Rate = DIVIDE ( [Cancelled Invoice Count], [All Invoice Count] )
+
+Sales MoM % =
+VAR IsSingleMonth = HASONEVALUE ( DimDate[YearMonth] )
+VAR PreviousSales = CALCULATE ( [Net Sales], DATEADD ( DimDate[Date], -1, MONTH ) )
+RETURN IF ( NOT IsSingleMonth || ISBLANK ( PreviousSales ) || PreviousSales = 0, BLANK (), DIVIDE ( [Net Sales] - PreviousSales, PreviousSales ) )
+
+Sales YoY % =
+VAR IsSingleMonth = HASONEVALUE ( DimDate[YearMonth] )
+VAR PriorYearSales = CALCULATE ( [Net Sales], DATEADD ( DimDate[Date], -1, YEAR ) )
+RETURN IF ( NOT IsSingleMonth || ISBLANK ( PriorYearSales ) || PriorYearSales = 0, BLANK (), DIVIDE ( [Net Sales] - PriorYearSales, PriorYearSales ) )

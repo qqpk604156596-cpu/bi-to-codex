@@ -1,0 +1,67 @@
+{
+  "name": "DuckDB metric baseline",
+  "status": "passed",
+  "generated_at": "2026-07-12T02:22:18.618463+00:00",
+  "dataset": "data/interim/fact_sales_line.csv",
+  "metric_ids": [
+    "gross_sales",
+    "cancelled_sales",
+    "net_sales",
+    "order_count",
+    "units_sold",
+    "active_customers",
+    "average_order_value",
+    "cancellation_rate",
+    "sales_mom_pct",
+    "sales_yoy_pct"
+  ],
+  "slices": [
+    {
+      "id": "all",
+      "metrics": {
+        "gross_sales": "20972594.55",
+        "cancelled_sales": "1527415.00",
+        "net_sales": "19445926.69",
+        "order_count": 40077,
+        "units_sold": 11420287,
+        "active_customers": 5878,
+        "average_order_value": "523.3074968186241485141103376",
+        "cancellation_rate": "0.1546351379072412957126606121",
+        "sales_mom_pct": null,
+        "sales_yoy_pct": null
+      }
+    },
+    {
+      "id": "country",
+      "country": "United Kingdom",
+      "metrics": {
+        "gross_sales": "17870977.76",
+        "cancelled_sales": "1330464.88",
+        "net_sales": "16541260.02",
+        "order_count": 36535,
+        "units_sold": 9383227,
+        "active_customers": 5350,
+        "average_order_value": "489.1467841795538524702340222",
+        "cancellation_rate": "0.1489725678675437345987006904",
+        "sales_mom_pct": null,
+        "sales_yoy_pct": null
+      }
+    },
+    {
+      "id": "month",
+      "month": "2010-11",
+      "metrics": {
+        "gross_sales": "1470272.48",
+        "cancelled_sales": "47617.84",
+        "net_sales": "1422654.64",
+        "order_count": 2747,
+        "units_sold": 728447,
+        "active_customers": 1607,
+        "average_order_value": "535.2284237349836184929013469",
+        "cancellation_rate": "0.1569910057236304170073589534",
+        "sales_mom_pct": "0.3122979661306560605036709817",
+        "sales_yoy_pct": null
+      }
+    }
+  ]
+}

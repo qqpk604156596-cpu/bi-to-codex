@@ -1,0 +1,14 @@
+{
+  "name": "Enterprise Sales Light",
+  "dataColors": [
+    "#2563EB",
+    "#0F766E",
+    "#D97706",
+    "#7C3AED",
+    "#DC2626",
+    "#475569"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#0F172A",
+  "tableAccent": "#2563EB"
+}

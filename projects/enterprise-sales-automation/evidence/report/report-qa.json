@@ -1,0 +1,22 @@
+{
+  "name": "BI Report QA Validation",
+  "status": "passed",
+  "generated_at": "2026-07-14T19:20:50.364130+08:00",
+  "project_path": ".",
+  "summary": {
+    "report_count": 1,
+    "page_count": 3,
+    "visual_count": 35,
+    "report_gate_result": "Passed",
+    "release_gate_result": "Passed",
+    "desktop_render_status": "Passed",
+    "issue_count": 0
+  },
+  "issues": [],
+  "manual_or_external_checks": [
+    "Power BI Desktop refresh",
+    "Human visual and interaction review",
+    "Performance Analyzer or equivalent performance check",
+    "Power BI Service/Fabric publish, permissions, and sign-off"
+  ]
+}

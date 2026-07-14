@@ -1,0 +1,10 @@
+{
+  "name": "MySQL validation extract",
+  "status": "passed",
+  "generated_at": "2026-07-12T02:00:45.510279+00:00",
+  "source": "MySQL vw_fact_sales_line",
+  "output_path": "data/interim/fact_sales_line.csv",
+  "row_count": 1067366,
+  "column_count": 13,
+  "sha256": "3446760ea0a6d3b814514c567f21fac208e9800ffb19a73d29624fcf78a28a18"
+}

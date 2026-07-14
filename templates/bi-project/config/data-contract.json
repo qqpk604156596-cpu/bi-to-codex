@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "dataset": {
+    "name": "{{PROJECT_NAME}} dataset",
+    "grain": "Define one-row grain before loading data",
+    "source": {
+      "type": "csv",
+      "path": "data/sample/dataset.csv",
+      "encoding": "utf-8-sig",
+      "delimiter": ","
+    },
+    "primary_key": [
+      "record_id"
+    ]
+  },
+  "expectations": {
+    "min_rows": 1
+  },
+  "columns": [
+    {
+      "name": "record_id",
+      "type": "string",
+      "required": true,
+      "nullable": false,
+      "unique": true
+    },
+    {
+      "name": "record_date",
+      "type": "date",
+      "format": "%Y-%m-%d",
+      "required": true,
+      "nullable": false
+    }
+  ]
+}

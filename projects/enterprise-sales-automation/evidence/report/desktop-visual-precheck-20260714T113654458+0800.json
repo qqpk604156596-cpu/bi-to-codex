@@ -1,0 +1,49 @@
+{
+  "name": "Power BI Desktop visual precheck",
+  "status": "blocked",
+  "generated_at": "2026-07-14T11:36:54.458+08:00",
+  "review_type": "agent_assisted_precheck_not_human_acceptance",
+  "source_run_id": "20260714T030603356Z",
+  "desktop_pid": 25740,
+  "desktop_has_unsaved_changes": true,
+  "issues": [
+    {
+      "id": "VIS-001",
+      "severity": "blocker",
+      "category": "layout",
+      "description": "The internal measure label is clipped at the bottom of KPI cards on all three pages."
+    },
+    {
+      "id": "VIS-002",
+      "severity": "major",
+      "category": "evidence_capture",
+      "description": "All three evidence screenshots include the expanded Power BI Filters pane."
+    },
+    {
+      "id": "VIS-003",
+      "severity": "major",
+      "category": "localization",
+      "description": "English report labels are mixed with zh-CN automatic display units and the unfiltered slicer state."
+    },
+    {
+      "id": "VIS-004",
+      "severity": "blocker",
+      "category": "contract_drift",
+      "description": "Product and Customer KPI sets and common header/footer requirements differ between ui-contract.json and report-design-spec.md."
+    }
+  ],
+  "automated_evidence": {
+    "refresh": "passed",
+    "metrics": "passed",
+    "rls": "passed"
+  },
+  "human_checks_remaining": [
+    "real_filter_interaction",
+    "keyboard_tab_order",
+    "screen_reader",
+    "high_contrast",
+    "performance_analyzer",
+    "final_visual_and_number_approval"
+  ],
+  "next_action": "Project owner must save or discard the unsaved PBIP state and approve the KPI contract direction before PBIR regeneration."
+}

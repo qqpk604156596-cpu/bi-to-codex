@@ -1,0 +1,19 @@
+{
+  "name": "MySQL standardized-view anomaly summary",
+  "status": "passed",
+  "generated_at": "2026-07-12T10:01:00+08:00",
+  "source": "enterprise_sales.vw_fact_sales_line",
+  "query_file": "src/sql/011_data_quality_anomaly_queries.sql",
+  "results": {
+    "source_row_count": 1067366,
+    "duplicate_source_row_id": 0,
+    "required_field_missing": 0,
+    "zero_price_line": 6202,
+    "unknown_customer_line": 243002,
+    "cancellation_prefix_mismatch": 0
+  },
+  "interpretation": {
+    "zero_price_line": "retained and flagged; not silently deleted",
+    "unknown_customer_line": "retained and flagged; customer metrics must exclude blank CustomerID"
+  }
+}

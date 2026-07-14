@@ -1,0 +1,104 @@
+{
+  "name": "BI Metric Validation",
+  "status": "passed",
+  "generated_at": "2026-07-14T09:52:02.914540+08:00",
+  "project_path": ".",
+  "summary": {
+    "row_count": 0,
+    "metric_count": 10,
+    "issue_count": 0
+  },
+  "results": {
+    "gross_sales": {
+      "name": "Gross Sales",
+      "actual": "reconciliation.json",
+      "expected": "passed",
+      "difference": "n/a",
+      "tolerance": "see reconciliation.json",
+      "status": "passed",
+      "format_string": "£#,0.00"
+    },
+    "cancelled_sales": {
+      "name": "Cancelled Sales",
+      "actual": "reconciliation.json",
+      "expected": "passed",
+      "difference": "n/a",
+      "tolerance": "see reconciliation.json",
+      "status": "passed",
+      "format_string": "£#,0.00"
+    },
+    "net_sales": {
+      "name": "Net Sales",
+      "actual": "reconciliation.json",
+      "expected": "passed",
+      "difference": "n/a",
+      "tolerance": "see reconciliation.json",
+      "status": "passed",
+      "format_string": "£#,0.00"
+    },
+    "order_count": {
+      "name": "Order Count",
+      "actual": "reconciliation.json",
+      "expected": "passed",
+      "difference": "n/a",
+      "tolerance": "see reconciliation.json",
+      "status": "passed",
+      "format_string": "0"
+    },
+    "units_sold": {
+      "name": "Units Sold",
+      "actual": "reconciliation.json",
+      "expected": "passed",
+      "difference": "n/a",
+      "tolerance": "see reconciliation.json",
+      "status": "passed",
+      "format_string": "0"
+    },
+    "active_customers": {
+      "name": "Active Customers",
+      "actual": "reconciliation.json",
+      "expected": "passed",
+      "difference": "n/a",
+      "tolerance": "see reconciliation.json",
+      "status": "passed",
+      "format_string": "0"
+    },
+    "average_order_value": {
+      "name": "Average Order Value",
+      "actual": "reconciliation.json",
+      "expected": "passed",
+      "difference": "n/a",
+      "tolerance": "see reconciliation.json",
+      "status": "passed",
+      "format_string": "£#,0.00"
+    },
+    "cancellation_rate": {
+      "name": "Cancellation Rate",
+      "actual": "reconciliation.json",
+      "expected": "passed",
+      "difference": "n/a",
+      "tolerance": "see reconciliation.json",
+      "status": "passed",
+      "format_string": "0.00%"
+    },
+    "sales_mom_pct": {
+      "name": "Sales MoM %",
+      "actual": "reconciliation.json",
+      "expected": "passed",
+      "difference": "n/a",
+      "tolerance": "see reconciliation.json",
+      "status": "passed",
+      "format_string": "0.00%"
+    },
+    "sales_yoy_pct": {
+      "name": "Sales YoY %",
+      "actual": "reconciliation.json",
+      "expected": "passed",
+      "difference": "n/a",
+      "tolerance": "see reconciliation.json",
+      "status": "passed",
+      "format_string": "0.00%"
+    }
+  },
+  "issues": []
+}

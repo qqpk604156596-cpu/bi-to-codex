@@ -1,0 +1,49 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.local.cnf
+*.key
+*.pem
+*secret*
+*credential*
+
+# Public source data, extracts and local databases
+projects/*/data/raw/*
+!projects/*/data/raw/.gitkeep
+projects/*/data/interim/*
+!projects/*/data/interim/.gitkeep
+*.xlsx
+*.xls
+*.zip
+*.csv
+*.duckdb
+*.db
+
+# Power BI binaries and local state
+*.pbix
+*.pbit
+*.abf
+*.bak
+**/.pbi/
+
+# Runtime evidence: curated runs are force-added intentionally
+projects/*/evidence/runs/
+*.log
+*.process.json
+
+# Python, Node and test caches
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+.next/
+test-results/
+playwright-report/
+.ipynb_checkpoints/
+
+# Editor and operating-system state
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

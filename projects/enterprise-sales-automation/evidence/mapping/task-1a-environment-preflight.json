@@ -1,0 +1,31 @@
+{
+  "name": "Enterprise Sales Automation Task 1A environment preflight",
+  "status": "blocked",
+  "evidence_date": "2026-07-11",
+  "scope": "Safe configuration, mapping gate, and local tool discovery only",
+  "observations": {
+    "python": "3.12.10",
+    "mysql_service": "Running",
+    "mysql_cli": "available",
+    "powerbi_report_author_cli": "available",
+    "powerbi_desktop_cli": "available",
+    "raw_uci_workbook_present": false,
+    "local_dotenv_present": false,
+    "local_mysql_cnf_present": false,
+    "mysql_connector_python_present": false,
+    "openpyxl_present": false,
+    "duckdb_present": false
+  },
+  "confirmed_controls": {
+    "dotenv_ignored": true,
+    "local_mysql_cnf_ignored": true,
+    "mapping_status": "pending-owner-approval",
+    "mapping_gate_output": "mapping_not_approved"
+  },
+  "blockers": [
+    "No UCI workbook is available locally.",
+    "No local MySQL credential file or source table is available.",
+    "The data-loading Python dependencies are declared but not installed."
+  ],
+  "next_permitted_action": "Obtain separate approval for Task 2 to download the public dataset, install declared dependencies, and write the approved data to MySQL."
+}

@@ -1,0 +1,79 @@
+{
+  "status": "observed",
+  "collected_at": "2026-07-13T15:55:03.191367+00:00",
+  "database": "enterprise_sales",
+  "mysql_version": "8.0.28",
+  "description_column": {
+    "DATA_TYPE": "varchar",
+    "CHARACTER_MAXIMUM_LENGTH": 512
+  },
+  "data_profile": {
+    "row_count": 1067366,
+    "max_description_chars": 35
+  },
+  "covering_index": [
+    {
+      "INDEX_NAME": "ix_product_cover",
+      "SEQ_IN_INDEX": 1,
+      "COLUMN_NAME": "StockCode"
+    },
+    {
+      "INDEX_NAME": "ix_product_cover",
+      "SEQ_IN_INDEX": 2,
+      "COLUMN_NAME": "DescriptionText"
+    }
+  ],
+  "without_covering_index_explain": [
+    {
+      "id": 1,
+      "select_type": "SIMPLE",
+      "table": "online_retail_raw",
+      "type": "index",
+      "possible_keys": "ix_stock_code",
+      "key": "ix_stock_code",
+      "key_len": "258",
+      "rows": 1058252,
+      "filtered": 100.0,
+      "Extra": null
+    }
+  ],
+  "with_covering_index_explain": [
+    {
+      "id": 1,
+      "select_type": "PRIMARY",
+      "table": "<derived2>",
+      "type": "ALL",
+      "possible_keys": null,
+      "key": null,
+      "key_len": null,
+      "rows": 9753,
+      "filtered": 100.0,
+      "Extra": null
+    },
+    {
+      "id": 2,
+      "select_type": "DERIVED",
+      "table": "online_retail_raw",
+      "type": "range",
+      "possible_keys": "ix_stock_code,ix_product_cover",
+      "key": "ix_product_cover",
+      "key_len": "258",
+      "rows": 9753,
+      "filtered": 100.0,
+      "Extra": "Using index for group-by"
+    }
+  ],
+  "without_covering_index_query": {
+    "sql_variant": "Product aggregate with IGNORE INDEX (ix_product_cover)",
+    "status": "server_timeout",
+    "errno": 3024,
+    "duration_ms": 30043.37,
+    "max_execution_time_ms": 30000
+  },
+  "with_covering_index_query": {
+    "sql_variant": "SELECT COUNT(*) FROM vw_dim_product",
+    "status": "completed",
+    "rows": 5131,
+    "duration_ms": 807.12
+  }
+}

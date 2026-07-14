@@ -1,0 +1,16 @@
+{
+  "schema": "enterprise_sales",
+  "source_table_env": "MYSQL_SOURCE_TABLE",
+  "connection_environment": {
+    "host": "MYSQL_HOST",
+    "port": "MYSQL_PORT",
+    "database": "MYSQL_DATABASE",
+    "user": "MYSQL_USER",
+    "password": "MYSQL_PASSWORD"
+  },
+  "power_bi": {
+    "connector": "MySQL",
+    "storage_mode": "Import"
+  },
+  "credential_policy": "Use a local .env or ignored *.local.cnf file. Never store credentials in this file."
+}

@@ -1,0 +1,481 @@
+{
+  "version": 1,
+  "global_slicers": [
+    "DimDate.YearMonth",
+    "DimCountry.Country"
+  ],
+  "pages": [
+    {
+      "id": "e10a5c4d8b7f612934ab",
+      "name": "Executive Overview",
+      "primary_visual_id": "exec_monthly_net_sales",
+      "visuals": [
+        {
+          "id": "exec_title",
+          "visual_type": "textbox",
+          "metric_id": null,
+          "text": "Executive Overview",
+          "position": [
+            32,
+            24,
+            500,
+            64
+          ]
+        },
+        {
+          "id": "exec_date",
+          "visual_type": "slicer",
+          "metric_id": null,
+          "field": [
+            "DimDate",
+            "YearMonth"
+          ],
+          "position": [
+            760,
+            16,
+            220,
+            76
+          ]
+        },
+        {
+          "id": "exec_country",
+          "visual_type": "slicer",
+          "metric_id": null,
+          "field": [
+            "DimCountry",
+            "Country"
+          ],
+          "position": [
+            1000,
+            16,
+            248,
+            76
+          ]
+        },
+        {
+          "id": "exec_net_sales",
+          "visual_type": "cardVisual",
+          "metric_id": "net_sales",
+          "position": [
+            32,
+            104,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "exec_order_count",
+          "visual_type": "cardVisual",
+          "metric_id": "order_count",
+          "position": [
+            432,
+            104,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "exec_units_sold",
+          "visual_type": "cardVisual",
+          "metric_id": "units_sold",
+          "position": [
+            832,
+            104,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "exec_active_customers",
+          "visual_type": "cardVisual",
+          "metric_id": "active_customers",
+          "position": [
+            32,
+            252,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "exec_average_order_value",
+          "visual_type": "cardVisual",
+          "metric_id": "average_order_value",
+          "position": [
+            432,
+            252,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "exec_cancellation_rate",
+          "visual_type": "cardVisual",
+          "metric_id": "cancellation_rate",
+          "position": [
+            832,
+            252,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "exec_monthly_net_sales",
+          "visual_type": "lineChart",
+          "metric_id": "net_sales",
+          "category": [
+            "DimDate",
+            "YearMonth"
+          ],
+          "title": "Monthly Net Sales",
+          "position": [
+            32,
+            400,
+            760,
+            250
+          ]
+        },
+        {
+          "id": "exec_country_net_sales",
+          "visual_type": "barChart",
+          "metric_id": "net_sales",
+          "category": [
+            "DimCountry",
+            "Country"
+          ],
+          "title": "Net Sales by Country",
+          "position": [
+            816,
+            400,
+            404,
+            250
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b20c6d5e9a8f713045bc",
+      "name": "Product & Trend Analysis",
+      "primary_visual_id": "product_monthly_net_sales",
+      "visuals": [
+        {
+          "id": "product_title",
+          "visual_type": "textbox",
+          "metric_id": null,
+          "text": "Product & Trend Analysis",
+          "position": [
+            32,
+            24,
+            560,
+            64
+          ]
+        },
+        {
+          "id": "product_date",
+          "visual_type": "slicer",
+          "metric_id": null,
+          "field": [
+            "DimDate",
+            "YearMonth"
+          ],
+          "position": [
+            666,
+            16,
+            180,
+            76
+          ]
+        },
+        {
+          "id": "product_country",
+          "visual_type": "slicer",
+          "metric_id": null,
+          "field": [
+            "DimCountry",
+            "Country"
+          ],
+          "position": [
+            858,
+            16,
+            180,
+            76
+          ]
+        },
+        {
+          "id": "product_stock_code",
+          "visual_type": "slicer",
+          "metric_id": null,
+          "field": [
+            "DimProduct",
+            "StockCode"
+          ],
+          "position": [
+            1050,
+            16,
+            198,
+            76
+          ]
+        },
+        {
+          "id": "product_net_sales",
+          "visual_type": "cardVisual",
+          "metric_id": "net_sales",
+          "position": [
+            32,
+            104,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "product_units_sold",
+          "visual_type": "cardVisual",
+          "metric_id": "units_sold",
+          "position": [
+            432,
+            104,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "product_cancelled_sales",
+          "visual_type": "cardVisual",
+          "metric_id": "cancelled_sales",
+          "position": [
+            832,
+            104,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "product_sales_mom",
+          "visual_type": "cardVisual",
+          "metric_id": "sales_mom_pct",
+          "position": [
+            32,
+            252,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "product_sales_yoy",
+          "visual_type": "cardVisual",
+          "metric_id": "sales_yoy_pct",
+          "position": [
+            432,
+            252,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "product_monthly_net_sales",
+          "visual_type": "lineChart",
+          "metric_id": "net_sales",
+          "category": [
+            "DimDate",
+            "YearMonth"
+          ],
+          "title": "Monthly Net Sales",
+          "position": [
+            32,
+            400,
+            760,
+            250
+          ]
+        },
+        {
+          "id": "product_top_net_sales",
+          "visual_type": "barChart",
+          "metric_id": "net_sales",
+          "category": [
+            "DimProduct",
+            "StockCode"
+          ],
+          "title": "Net Sales by Product",
+          "position": [
+            816,
+            400,
+            404,
+            250
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c30d7e6f1b9a824156cd",
+      "name": "Customer & Country Analysis",
+      "primary_visual_id": "customer_country_net_sales",
+      "visuals": [
+        {
+          "id": "customer_title",
+          "visual_type": "textbox",
+          "metric_id": null,
+          "text": "Customer & Country Analysis",
+          "position": [
+            32,
+            24,
+            580,
+            64
+          ]
+        },
+        {
+          "id": "customer_date",
+          "visual_type": "slicer",
+          "metric_id": null,
+          "field": [
+            "DimDate",
+            "YearMonth"
+          ],
+          "position": [
+            642,
+            16,
+            180,
+            76
+          ]
+        },
+        {
+          "id": "customer_country",
+          "visual_type": "slicer",
+          "metric_id": null,
+          "field": [
+            "DimCountry",
+            "Country"
+          ],
+          "position": [
+            834,
+            16,
+            180,
+            76
+          ]
+        },
+        {
+          "id": "customer_customer_id",
+          "visual_type": "slicer",
+          "metric_id": null,
+          "field": [
+            "DimCustomer",
+            "CustomerID"
+          ],
+          "position": [
+            1026,
+            16,
+            222,
+            76
+          ]
+        },
+        {
+          "id": "customer_net_sales",
+          "visual_type": "cardVisual",
+          "metric_id": "net_sales",
+          "position": [
+            32,
+            104,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "customer_order_count",
+          "visual_type": "cardVisual",
+          "metric_id": "order_count",
+          "position": [
+            432,
+            104,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "customer_active_customers",
+          "visual_type": "cardVisual",
+          "metric_id": "active_customers",
+          "position": [
+            832,
+            104,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "customer_average_order_value",
+          "visual_type": "cardVisual",
+          "metric_id": "average_order_value",
+          "position": [
+            32,
+            252,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "customer_cancelled_sales",
+          "visual_type": "cardVisual",
+          "metric_id": "cancelled_sales",
+          "position": [
+            432,
+            252,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "customer_cancellation_rate",
+          "visual_type": "cardVisual",
+          "metric_id": "cancellation_rate",
+          "position": [
+            832,
+            252,
+            380,
+            132
+          ]
+        },
+        {
+          "id": "customer_country_net_sales",
+          "visual_type": "barChart",
+          "metric_id": "net_sales",
+          "category": [
+            "DimCountry",
+            "Country"
+          ],
+          "title": "Net Sales by Country",
+          "position": [
+            32,
+            400,
+            568,
+            238
+          ]
+        },
+        {
+          "id": "customer_top_net_sales",
+          "visual_type": "barChart",
+          "metric_id": "net_sales",
+          "category": [
+            "DimCustomer",
+            "CustomerID"
+          ],
+          "title": "Net Sales by Customer",
+          "position": [
+            620,
+            400,
+            600,
+            238
+          ]
+        },
+        {
+          "id": "customer_rls_note",
+          "visual_type": "textbox",
+          "metric_id": null,
+          "text": "Simulated RLS mapping for public-data practice only. Power BI Service identity validation is not included.",
+          "position": [
+            32,
+            656,
+            1188,
+            40
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+# Credentials and local configuration
+.env
+.env.*
+*.key
+*.pem
+*secret*
+*credential*
+
+# Client and intermediate data
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+
+# Power BI binaries and local state
+*.pbix
+*.pbit
+*.abf
+*.bak
+.pbi/localSettings.json
+.pbi/cache.abf
+
+# Python and notebook caches
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+
+# Editor and operating-system state
+.DS_Store
+Thumbs.db

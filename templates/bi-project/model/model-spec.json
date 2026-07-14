@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "model": {
+    "name": "{{PROJECT_NAME}} Model",
+    "fact_table": "FactData",
+    "date_table": "DimDate"
+  },
+  "tables": [
+    {
+      "name": "FactData",
+      "kind": "fact",
+      "grain": "Define the fact-table grain",
+      "source": "data/sample/dataset.csv",
+      "columns": [
+        "record_id",
+        "record_date"
+      ]
+    },
+    {
+      "name": "DimDate",
+      "kind": "date",
+      "primary_key": "Date",
+      "columns": [
+        "Date",
+        "Year",
+        "Month"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "from_table": "FactData",
+      "from_column": "record_date",
+      "to_table": "DimDate",
+      "to_column": "Date",
+      "cardinality": "many-to-one",
+      "active": true
+    }
+  ],
+  "measures": [
+    {
+      "name": "Record Count",
+      "metric_id": "record_count",
+      "table": "FactData",
+      "expression": "DISTINCTCOUNT(FactData[record_id])",
+      "format_string": "0"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+table SecurityUserCountry
+	lineageTag: 89fd4f3f-51c4-4160-a552-6387b9ea0d57
+
+	column UserPrincipalName
+		dataType: string
+		lineageTag: 18e94120-ab07-471e-b139-51154fa3bd41
+		sourceColumn: UserPrincipalName
+
+	column Country
+		dataType: string
+		lineageTag: 19ed8bb2-45b1-416d-95b6-9b1d80b79ae3
+		sourceColumn: Country
+
+	column IsActive
+		dataType: boolean
+		lineageTag: b8d8f73a-9976-4afd-9f8e-53a35d0a3e41
+		sourceColumn: IsActive
+
+	partition SecurityUserCountry = m
+		mode: import
+		source = #table(type table [UserPrincipalName = text, Country = text, IsActive = logical], {{"manager.uk@example.invalid", "United Kingdom", true}, {"manager.fr@example.invalid", "France", true}})

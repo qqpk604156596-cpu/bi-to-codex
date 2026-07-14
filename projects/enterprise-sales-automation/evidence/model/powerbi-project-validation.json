@@ -1,0 +1,35 @@
+{
+  "name": "Power BI Project Structure Validation",
+  "status": "passed",
+  "scope": "pbip_pbir_pbism_tmdl_structure",
+  "desktop_cold_start_executed": false,
+  "generated_at": "2026-07-14T14:54:14.280218+08:00",
+  "project_path": ".",
+  "summary": {
+    "pbip_count": 1,
+    "report_count": 1,
+    "semantic_model_count": 1,
+    "report_checks": [
+      {
+        "path": "EnterpriseSalesAutomation.Report",
+        "report_json": true,
+        "pages_json": true,
+        "version_json": true
+      }
+    ],
+    "semantic_model_checks": [
+      {
+        "path": "EnterpriseSalesAutomation.SemanticModel",
+        "definition_pbism": true,
+        "database_tmdl": true,
+        "model_tmdl": true,
+        "relationships_tmdl": true,
+        "table_tmdl_count": 6,
+        "source_parameter": true,
+        "portable_source_paths": true
+      }
+    ],
+    "issue_count": 0
+  },
+  "issues": []
+}

@@ -1,0 +1,15 @@
+{
+  "status": "requires-owner-approval",
+  "generated_at": "2026-07-14T02:25:41.907717+00:00",
+  "mapping": {
+    "InvoiceNo": "InvoiceNo",
+    "StockCode": "StockCode",
+    "Description": "DescriptionText",
+    "Quantity": "Quantity",
+    "InvoiceDate": "InvoiceDate",
+    "UnitPrice": "UnitPrice",
+    "CustomerID": "CustomerID",
+    "Country": "Country"
+  },
+  "missing_standard_fields": []
+}

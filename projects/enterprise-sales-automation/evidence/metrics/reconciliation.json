@@ -1,0 +1,254 @@
+{
+  "name": "DuckDB and MySQL metric reconciliation",
+  "status": "passed",
+  "generated_at": "2026-07-12T02:22:18.618463+00:00",
+  "dataset": "data/interim/fact_sales_line.csv",
+  "metric_ids": [
+    "gross_sales",
+    "cancelled_sales",
+    "net_sales",
+    "order_count",
+    "units_sold",
+    "active_customers",
+    "average_order_value",
+    "cancellation_rate",
+    "sales_mom_pct",
+    "sales_yoy_pct"
+  ],
+  "slices": [
+    {
+      "id": "all",
+      "reconciliation": {
+        "status": "passed",
+        "metrics": {
+          "gross_sales": {
+            "duckdb": "20972594.55",
+            "mysql": "20972594.55",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "cancelled_sales": {
+            "duckdb": "1527415.00",
+            "mysql": "1527415.00",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "net_sales": {
+            "duckdb": "19445926.69",
+            "mysql": "19445926.69",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "order_count": {
+            "duckdb": 40077,
+            "mysql": 40077,
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "units_sold": {
+            "duckdb": 11420287,
+            "mysql": 11420287,
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "active_customers": {
+            "duckdb": 5878,
+            "mysql": 5878,
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "average_order_value": {
+            "duckdb": "523.3074968186241485141103376",
+            "mysql": "523.3074968186241485141103376",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "cancellation_rate": {
+            "duckdb": "0.1546351379072412957126606121",
+            "mysql": "0.1546351379072412957126606121",
+            "difference": "0.00",
+            "tolerance": "0.0001",
+            "status": "passed"
+          },
+          "sales_mom_pct": {
+            "duckdb": null,
+            "mysql": null,
+            "difference": null,
+            "tolerance": "0.0001",
+            "status": "both-null"
+          },
+          "sales_yoy_pct": {
+            "duckdb": null,
+            "mysql": null,
+            "difference": null,
+            "tolerance": "0.0001",
+            "status": "both-null"
+          }
+        }
+      }
+    },
+    {
+      "id": "country",
+      "reconciliation": {
+        "status": "passed",
+        "metrics": {
+          "gross_sales": {
+            "duckdb": "17870977.76",
+            "mysql": "17870977.76",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "cancelled_sales": {
+            "duckdb": "1330464.88",
+            "mysql": "1330464.88",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "net_sales": {
+            "duckdb": "16541260.02",
+            "mysql": "16541260.02",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "order_count": {
+            "duckdb": 36535,
+            "mysql": 36535,
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "units_sold": {
+            "duckdb": 9383227,
+            "mysql": 9383227,
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "active_customers": {
+            "duckdb": 5350,
+            "mysql": 5350,
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "average_order_value": {
+            "duckdb": "489.1467841795538524702340222",
+            "mysql": "489.1467841795538524702340222",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "cancellation_rate": {
+            "duckdb": "0.1489725678675437345987006904",
+            "mysql": "0.1489725678675437345987006904",
+            "difference": "0.00",
+            "tolerance": "0.0001",
+            "status": "passed"
+          },
+          "sales_mom_pct": {
+            "duckdb": null,
+            "mysql": null,
+            "difference": null,
+            "tolerance": "0.0001",
+            "status": "both-null"
+          },
+          "sales_yoy_pct": {
+            "duckdb": null,
+            "mysql": null,
+            "difference": null,
+            "tolerance": "0.0001",
+            "status": "both-null"
+          }
+        }
+      }
+    },
+    {
+      "id": "month",
+      "reconciliation": {
+        "status": "passed",
+        "metrics": {
+          "gross_sales": {
+            "duckdb": "1470272.48",
+            "mysql": "1470272.48",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "cancelled_sales": {
+            "duckdb": "47617.84",
+            "mysql": "47617.84",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "net_sales": {
+            "duckdb": "1422654.64",
+            "mysql": "1422654.64",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "order_count": {
+            "duckdb": 2747,
+            "mysql": 2747,
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "units_sold": {
+            "duckdb": 728447,
+            "mysql": 728447,
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "active_customers": {
+            "duckdb": 1607,
+            "mysql": 1607,
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "average_order_value": {
+            "duckdb": "535.2284237349836184929013469",
+            "mysql": "535.2284237349836184929013469",
+            "difference": "0.00",
+            "tolerance": "0.01",
+            "status": "passed"
+          },
+          "cancellation_rate": {
+            "duckdb": "0.1569910057236304170073589534",
+            "mysql": "0.1569910057236304170073589534",
+            "difference": "0.00",
+            "tolerance": "0.0001",
+            "status": "passed"
+          },
+          "sales_mom_pct": {
+            "duckdb": "0.3122979661306560605036709817",
+            "mysql": "0.3122979661306560605036709817",
+            "difference": "0.00",
+            "tolerance": "0.0001",
+            "status": "passed"
+          },
+          "sales_yoy_pct": {
+            "duckdb": null,
+            "mysql": null,
+            "difference": null,
+            "tolerance": "0.0001",
+            "status": "both-null"
+          }
+        }
+      }
+    }
+  ]
+}

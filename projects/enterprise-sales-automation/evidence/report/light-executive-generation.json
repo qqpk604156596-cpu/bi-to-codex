@@ -1,0 +1,66 @@
+{
+  "name": "Light Executive PBIR generation and Desktop rendering",
+  "status": "passed",
+  "generated_at": "2026-07-12T14:56:45.4394595Z",
+  "scope": "PBIR visual styling and Desktop rendering only",
+  "design_system": "report/design-tokens.json",
+  "commands": [
+    {
+      "command": ".venv\\Scripts\\python.exe -m unittest discover -s tests -p test_*.py",
+      "result": "passed",
+      "detail": "31 tests passed"
+    },
+    {
+      "command": ".venv\\Scripts\\python.exe src\\automation\\apply_pbir_report.py --replace-generated",
+      "result": "passed",
+      "detail": "pbir_pages_written=3"
+    },
+    {
+      "command": ".venv\\Scripts\\python.exe ..\\..\\scripts\\Test-BIPowerBIProject.py --project-path .",
+      "result": "passed",
+      "detail": "powerbi_project_validation_passed"
+    },
+    {
+      "command": "powerbi-report-author validate .\\EnterpriseSalesAutomation.Report",
+      "result": "passed",
+      "detail": "0 errors, 0 warnings"
+    },
+    {
+      "command": "Refresh-DesktopModel.ps1",
+      "result": "passed",
+      "detail": "full local Import refresh completed without writing MySQL credentials"
+    },
+    {
+      "command": "Validate-DesktopMetrics.ps1",
+      "result": "passed",
+      "detail": "all, country and month slices match the approved MySQL baseline; mismatch_count=0"
+    }
+  ],
+  "desktop": {
+    "bridge_method": "Power BI Desktop Bridge screenshot-all targeted to the no-unsaved-changes instance",
+    "screenshots": [
+      {
+        "page": "Executive Overview",
+        "path": "light-executive-desktop/Executive Overview.png",
+        "sha256": "9E40DD2696E0F6AE2E6E47348E93FAF59C836B2EBAD9DE70000054EF26623E25"
+      },
+      {
+        "page": "Product & Trend Analysis",
+        "path": "light-executive-desktop/Product & Trend Analysis.png",
+        "sha256": "BF2BB7FE5FCD7C556C8B424F528B9DFB9C3671417B16A2ACF6DC2F4DFB84B0A0"
+      },
+      {
+        "page": "Customer & Country Analysis",
+        "path": "light-executive-desktop/Customer & Country Analysis.png",
+        "sha256": "BF807845A3C58AAC057FA4E69D318E2E27371DDEAFA071AF666438FA37604085"
+      }
+    ]
+  },
+  "not_validated": [
+    "keyboard and screen-reader accessibility",
+    "filter interaction performance",
+    "dynamic RLS positive-user scenarios",
+    "PBIX delivery acceptance",
+    "Power BI Service, Fabric, gateway, real sharing"
+  ]
+}

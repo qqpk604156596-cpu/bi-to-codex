@@ -1,0 +1,152 @@
+table FactSalesLine
+	lineageTag: 0972f7df-8dce-405a-adc3-aaddb0f598bd
+
+	measure 'Gross Sales' = CALCULATE ( SUM ( FactSalesLine[LineAmount] ), FactSalesLine[IsCancellation] = FALSE (), FactSalesLine[Quantity] > 0, FactSalesLine[UnitPrice] > 0 )
+		formatString: £#,0.00
+		lineageTag: 7452278d-787d-48a8-8bd3-db222a355283
+
+	measure 'Cancelled Sales' = CALCULATE ( SUMX ( FactSalesLine, ABS ( FactSalesLine[LineAmount] ) ), FactSalesLine[IsCancellation] = TRUE () )
+		formatString: £#,0.00
+		lineageTag: de100118-d2c6-4a5c-8e73-bfabe7980edf
+
+	measure 'Net Sales' = SUM ( FactSalesLine[LineAmount] )
+		formatString: £#,0.00
+		lineageTag: 39951f44-aa14-4b01-ae7d-304d04e00adc
+
+	measure 'Order Count' = CALCULATE ( DISTINCTCOUNT ( FactSalesLine[InvoiceNo] ), FactSalesLine[IsCancellation] = FALSE (), FactSalesLine[Quantity] > 0, FactSalesLine[UnitPrice] > 0 )
+		formatString: 0
+		lineageTag: 51f1fb45-1d34-4fe9-a1e8-ea67ac831d36
+
+	measure 'Units Sold' = CALCULATE ( SUM ( FactSalesLine[Quantity] ), FactSalesLine[IsCancellation] = FALSE (), FactSalesLine[Quantity] > 0, FactSalesLine[UnitPrice] > 0 )
+		formatString: 0
+		lineageTag: c3020aea-0530-471d-a8dc-7c9352699aaf
+
+	measure 'Active Customers' = CALCULATE ( DISTINCTCOUNT ( FactSalesLine[CustomerID] ), FactSalesLine[IsCancellation] = FALSE (), FactSalesLine[Quantity] > 0, FactSalesLine[UnitPrice] > 0, NOT ISBLANK ( FactSalesLine[CustomerID] ) )
+		formatString: 0
+		lineageTag: 3d80707b-4b7b-4128-89df-4d49d5e9f9a7
+
+	measure 'Average Order Value' = DIVIDE ( [Gross Sales], [Order Count] )
+		formatString: £#,0.00
+		lineageTag: c13fa631-b921-4af7-adc6-bb5cb562eb07
+
+	measure 'Cancelled Invoice Count' = CALCULATE ( DISTINCTCOUNT ( FactSalesLine[InvoiceNo] ), FactSalesLine[IsCancellation] = TRUE () )
+		isHidden
+		lineageTag: 543810c2-7ea0-442b-837b-0a671278325d
+
+	measure 'All Invoice Count' = DISTINCTCOUNT ( FactSalesLine[InvoiceNo] )
+		isHidden
+		lineageTag: 68bc3f6f-6531-4626-8be7-1b69394e3a0a
+
+	measure 'Cancellation Rate' = DIVIDE ( [Cancelled Invoice Count], [All Invoice Count] )
+		formatString: 0.00%
+		lineageTag: e33d6c69-0102-4400-84f0-cf25d76eacad
+
+	measure 'Sales MoM %' =
+			VAR IsSingleMonth = HASONEVALUE ( DimDate[YearMonth] )
+			VAR PreviousSales = CALCULATE ( [Net Sales], DATEADD ( DimDate[Date], -1, MONTH ) )
+			RETURN IF ( NOT IsSingleMonth || ISBLANK ( PreviousSales ) || PreviousSales = 0, BLANK (), DIVIDE ( [Net Sales] - PreviousSales, PreviousSales ) )
+		formatString: 0.00%
+		lineageTag: fbbeeb9e-fa73-4734-b68c-0bbea1ab4b17
+
+	measure 'Sales YoY %' =
+			VAR IsSingleMonth = HASONEVALUE ( DimDate[YearMonth] )
+			VAR PriorYearSales = CALCULATE ( [Net Sales], DATEADD ( DimDate[Date], -1, YEAR ) )
+			RETURN IF ( NOT IsSingleMonth || ISBLANK ( PriorYearSales ) || PriorYearSales = 0, BLANK (), DIVIDE ( [Net Sales] - PriorYearSales, PriorYearSales ) )
+		formatString: 0.00%
+		lineageTag: 4bd41aee-a6e2-4ff7-8a47-7615c14c24e8
+
+	column SourceRowId
+		dataType: string
+		isHidden
+		lineageTag: ce538d5b-b4a5-4280-b5b7-443c4f28e26e
+		sourceColumn: SourceRowId
+
+	column InvoiceNo
+		dataType: string
+		lineageTag: 1bf21088-7ae0-40bc-94fe-6b5272f51c76
+		sourceColumn: InvoiceNo
+
+	column StockCode
+		dataType: string
+		isHidden
+		lineageTag: cdad4cce-c810-451e-8e3e-bc6205bf9e1f
+		sourceColumn: StockCode
+
+	column Description
+		dataType: string
+		lineageTag: 08973fac-c346-4cb6-9929-d4276efe27f6
+		sourceColumn: Description
+
+	column Quantity
+		dataType: int64
+		lineageTag: 31cd5848-49ce-483a-89b9-8454ebb193d7
+		sourceColumn: Quantity
+
+	column InvoiceDate
+		dataType: dateTime
+		lineageTag: 7e56716b-16d8-4acb-a761-b556047a8d25
+		sourceColumn: InvoiceDate
+
+	column InvoiceDateDate
+		dataType: dateTime
+		isHidden
+		lineageTag: 4c85d8da-04c3-4814-8fc2-7b0461e88744
+		sourceColumn: InvoiceDateDate
+
+	column UnitPrice
+		dataType: decimal
+		lineageTag: 6829229b-7a42-41e4-af24-a6e24e4db7a7
+		sourceColumn: UnitPrice
+
+	column CustomerID
+		dataType: string
+		isHidden
+		lineageTag: 396309b5-cf62-4a44-bf74-5c4e1c2c0421
+		sourceColumn: CustomerID
+
+	column CustomerKey
+		dataType: string
+		isHidden
+		lineageTag: c104b0f6-5731-4c32-96f8-824697c41bd1
+		sourceColumn: CustomerKey
+
+	column Country
+		dataType: string
+		isHidden
+		lineageTag: f0b73061-a35d-4ef2-9ea5-c4c701d9c632
+		sourceColumn: Country
+
+	column IsCancellation
+		dataType: boolean
+		isHidden
+		lineageTag: 86d6c362-99aa-4c90-8c07-2625f15f059e
+		sourceColumn: IsCancellation
+
+	column UnknownCustomer
+		dataType: boolean
+		isHidden
+		lineageTag: 407dcec2-cbbd-4477-aa70-ed97cb9d756a
+		sourceColumn: UnknownCustomer
+
+	column ZeroPrice
+		dataType: boolean
+		isHidden
+		lineageTag: 8c15acd6-ae4a-468e-965e-6f98d8a52848
+		sourceColumn: ZeroPrice
+
+	column LineAmount
+		dataType: decimal
+		lineageTag: 654dc72d-6943-4cfe-9383-2544039a0d19
+		sourceColumn: LineAmount
+
+	partition FactSalesLine = m
+		mode: import
+		source =
+				let
+					Source = MySQL.Database(MySqlServer, MySqlDatabase, [ReturnSingleDatabase = true]),
+					Navigation = Source{[Schema=MySqlDatabase, Item="vw_fact_sales_line"]}[Data],
+					Typed = Table.TransformColumnTypes(Navigation, {{"SourceRowId", type text}, {"InvoiceNo", type text}, {"StockCode", type text}, {"Description", type text}, {"Quantity", Int64.Type}, {"InvoiceDate", type datetime}, {"UnitPrice", type number}, {"CustomerID", type text}, {"Country", type text}, {"IsCancellation", type logical}, {"UnknownCustomer", type logical}, {"ZeroPrice", type logical}, {"LineAmount", type number}}),
+					WithDate = Table.AddColumn(Typed, "InvoiceDateDate", each DateTime.Date([InvoiceDate]), type date),
+					WithCustomerKey = Table.AddColumn(WithDate, "CustomerKey", each if [CustomerID] = null then "UNKNOWN" else [CustomerID], type text)
+				in
+					WithCustomerKey
